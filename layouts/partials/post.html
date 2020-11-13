@@ -1,0 +1,63 @@
+<section class="hero is-primary shadow-hero">
+  <div class="hero-body">
+    <header class="container has-text-centered">
+      <h1 class="title post-title">
+        {{ .Title }}
+      </h1>
+      <h2 class="subtitle">
+        {{- if isset .Params "date" -}}
+        <time class="post-meta">{{ .Date.Format "2006/01/02" }}</time>
+        {{- end -}}
+        {{ with .Params.Categories }} ・
+        {{ range .}}
+        <span class="post-tag post-meta">
+          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        </span>
+        {{ end }}
+        {{ end }}
+      </h2>
+      {{ with .Params.tags }}
+      <div class="tagbox post-meta">
+        {{ range . }}
+        <span class="post-tag">
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+        </span>
+        {{ end }}
+        <!-- <span class="post-tag">#Hello</span><span class="post-tag">#Hello</span> -->
+      </div>
+      {{ end }}
+    </header>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+      <div class="column is-three-quarters">
+        {{ else }}
+        <div class="column is-1"></div>
+        <div class="column is-10">
+          {{ end }}
+          <article class="content" id="post-content">
+            {{- .Content -}}
+          </article>
+        </div>
+        {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+        <div class="column is-hidden-mobile">
+          <div class="sidebar" id="toc">
+            {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+            <div class="post post-toc" id="post-toc">
+              <!-- render by tocbot -->
+            </div>
+            {{- end }}
+          </div>
+        </div>
+        {{ end }}
+        {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+        {{ else }}
+        <div class="column is-1"></div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

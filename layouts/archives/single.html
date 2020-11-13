@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+{{- partial "head.html" . -}}
+
+<body>
+  <div id="main">
+    {{- partial "nav.html" . -}}
+    {{- partial "header.html" . -}}
+    <section class="section">
+    {{- block "archives-main" . }}{{- end }}
+    </section>
+  </div>
+  {{- partial "footer.html" . -}}
+  {{- partial "backtotop.html" . -}}
+  {{- block "script" . }}{{- end }}
+</body>
+
+</html>
+
+{{ define "archives-main" }}
+<div class="container">
+  <div class="box section">
+    <div class="content">
+      <p>本博客共 {{len (where (where .Site.Pages "Type" "post") "Kind" "page")}} 篇博文</p>
+      <div class="post-archive">
+        {{ range (where (where .Site.Pages "Type" "post") "Kind" "page").GroupByDate "2006" }}
+        <h2>{{ .Key }}</h2>
+        <ul class="listing">
+          {{ range .Pages }}
+          <li>
+            <span class="date">{{ .Date.Format "2006/01/02" }} </span>
+            <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

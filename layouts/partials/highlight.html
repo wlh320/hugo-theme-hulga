@@ -1,0 +1,29 @@
+<link id="hlcss" rel="stylesheet" type="text/css">
+
+<script>
+  function addCss(url) {
+    var link = document.getElementById('hlcss');
+    link.href = url;
+  }
+  {{ if .Site.Params.darkMedia }}
+  var darkcss = '/css/monokai.css'
+  {{ else }}
+  var darkcss = '/css/monokailight.css'
+  {{ end }}
+  var lightcss = '/css/monokailight.css'
+  // load syntax css
+  if (window.matchMedia('(prefers-color-scheme)').media === 'not all') {
+    // alert('Browser doesn\'t support dark mode');
+    addCss(lightcss);
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    addCss(darkcss);
+  } else {
+    addCss(lightcss);
+  }
+  window.matchMedia("(prefers-color-scheme: dark)").addListener(
+    e => e.matches && addCss(darkcss)
+  );
+  window.matchMedia("(prefers-color-scheme: light)").addListener(
+    e => e.matches && addCss(lightcss)
+  );
+</script>

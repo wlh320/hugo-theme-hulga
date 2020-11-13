@@ -1,0 +1,22 @@
+{{ $options := (dict "outputStyle" "compressed" "includePaths" (slice "sass")) }}
+{{ $tocScss := resources.Get "css/toc.scss" }}
+{{ $toc := $tocScss | resources.ExecuteAsTemplate "css/toc.scss" . | resources.ToCSS $options | resources.Minify }}
+<link rel="stylesheet" type="text/css" href="{{ $toc.Permalink | relURL }}">
+<script src="/js/tocbot.min.js"></script>
+{{ $globalAutoCollapseToc := .Site.Params.autoCollapseToc | default false }}
+<script>
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.post-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '#post-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        collapseDepth: {{ if not (or .Params.autoCollapseToc (and $globalAutoCollapseToc (ne .Params.autoCollapseToc false))) }} 6 {{else}} 0 {{ end }},
+        scrollSmooth: true,
+        positionFixedSelector: '.post-toc',
+        // FIXME: elements in container's offsetTop is not right...It's to difficult for me...
+        // fixedSidebarOffset: 'auto',
+        fixedSidebarOffset: 273,
+    });
+</script>

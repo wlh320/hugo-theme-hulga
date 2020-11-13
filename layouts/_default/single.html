@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{- partial "post.html" . -}}
+{{ end }}
+
+{{ define "script" }}
+  <!-- following is js part -->
+  {{- partial "highlight.html" . -}}
+  {{- partial "anchor.html" . -}}
+
+  {{ if or .Params.math .Site.Params.math }}
+  {{- partial "math.html" . -}}
+  {{ end }}
+
+  {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+  {{- partial "toc.html" . -}}
+  {{ end }}
+{{ end }}

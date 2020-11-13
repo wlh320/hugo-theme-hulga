@@ -1,0 +1,27 @@
+{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+{{ with $paginator }}
+
+{{ if gt .TotalPages 1 }}
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    {{ if .HasPrev }}
+      <a class="pagination-previous" href="{{ .Prev.URL }}">上一页</a>
+    {{ end }}
+
+    {{ if .HasNext }}
+      <a class="pagination-next" href="{{ .Next.URL }}">下一页</a>
+    {{ end }}
+
+    {{ if lt .TotalPages 20 }}
+    <ul class="pagination-list">
+    {{ range .Pagers }}
+      <li>
+        <a class="pagination-link {{ if eq .PageNumber $.Paginator.PageNumber }}is-current{{ end }}" 
+          href="{{ .URL }}">{{ .PageNumber }}</a>
+      </li>
+    {{ end }}
+    </ul>
+    {{ end }}
+</nav>
+{{ end }}
+
+{{ end }}

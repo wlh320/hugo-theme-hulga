@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/katex.min.css">
+<script defer src="/js/katex.min.js"></script>
+<script defer src="/js/auto-render.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      // ...options...
+      delimiters: [{
+          left: "$$",
+          right: "$$",
+          display: true
+        },
+        {
+          left: "\\[",
+          right: "\\]",
+          display: true
+        },
+        {
+          left: "$",
+          right: "$",
+          display: false
+        },
+        {
+          left: "\\(",
+          right: "\\)",
+          display: false
+        }
+      ]
+
+    });
+  });
+</script>

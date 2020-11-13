@@ -1,0 +1,14 @@
+<section class="hero is-primary shadow-hero">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        {{ .Site.Title }}
+      </h1>
+      {{ if .Site.Params.subtitle }}
+      <h2 class="subtitle">
+        {{ .Site.Params.subtitle }}
+      </h2>
+      {{ end }}
+    </div>
+  </div>
+</section>

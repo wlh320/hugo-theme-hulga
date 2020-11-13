@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{- partial "header.html" . -}}
+<!-- {{- partial "posts.html" . -}} -->
+<section class="section">
+  <div class="container">
+    <div class="content">
+      {{ if eq .Data.Singular "category" }}
+      <h3>
+        分类
+        <span class="tag mytag">{{ .Data.Term }}</span>
+        中的文章
+      </h3>
+      {{ else if eq .Data.Singular "tag" }}
+      <h3>
+        包含标签
+        <span class="tag mytag"><a>{{ .Data.Term }}</a></span>
+        的文章
+      </h3>
+      {{ end }}
+    </div>
+    <div class="post-lists">
+      {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+      {{ range $paginator.Pages }}
+      <div class="one-post box">
+        <div class="is-6">{{ .Date.Format "2006/01/02" }}</div>
+        <div><a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a></div>
+      </div>
+      {{ end }}
+      {{ partial "paginator.html" . }}
+    </div>
+
+  </div>
+</section>
+
+{{ end }}
