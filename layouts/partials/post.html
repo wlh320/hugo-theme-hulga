@@ -1,6 +1,13 @@
-<section class="hero is-primary shadow-hero">
+<section class="hero is-primary shadow-hero {{ if .Site.Params.heroBold}} is-bold {{ end }}">
+  <div class="hero-head">
+    {{ partial "nav.html" . }}
+  </div>
   <div class="hero-body">
+    {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+    <header class="container">
+    {{ else }}
     <header class="container has-text-centered">
+    {{ end }}
       <h1 class="title post-title">
         {{ .Title }}
       </h1>
@@ -34,29 +41,25 @@
     <div class="columns">
       {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
       <div class="column is-three-quarters">
-        {{ else }}
-        <div class="column is-1"></div>
-        <div class="column is-10">
-          {{ end }}
-          <article class="content" id="post-content">
-            {{- .Content -}}
-          </article>
-        </div>
-        {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
-        <div class="column is-hidden-mobile">
-          <div class="sidebar" id="toc">
-            {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
-            <div class="post post-toc" id="post-toc">
-              <!-- render by tocbot -->
-            </div>
-            {{- end }}
+      {{ else }}
+      <!-- <div class="column is-1 is-hidden-mobile"></div> -->
+      <div class="column is-three-fifths is-offset-one-fifth">
+      {{ end }}
+        <article class="content" id="post-content">
+          {{- .Content -}}
+        </article>
+      </div>
+      {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+      <div class="column is-hidden-mobile">
+        <div class="sidebar" id="toc">
+          {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+          <div class="post post-toc" id="post-toc">
+            <!-- render by tocbot -->
           </div>
+          {{- end }}
         </div>
-        {{ end }}
-        {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
-        {{ else }}
-        <div class="column is-1"></div>
-        {{ end }}
+      </div>
+      {{ end }}
       </div>
     </div>
   </div>

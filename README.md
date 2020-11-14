@@ -9,7 +9,10 @@
 
 ## Features
 
-- basic functions: category/tag/archives
+- small & fast
+- basic functions:
+  - category & tag
+  - archives
 - TOC sidebar
 - `prefers-color-scheme` media support
 
@@ -28,7 +31,7 @@ theme = "hulga"
 ```
 and then config it.
 
-3. to use `postcss`, copy `package.json ` and `postcss-config.js` to the root of your site folder, then `npm install`
+3. to use `postcss`, copy `package.json ` and `postcss.config.js` to the root of your site folder, then `npm install`
 
 ## Config
 
@@ -37,6 +40,7 @@ An example of avaliable params:
 ```toml
 baseURL = "https://example.com"
 languageCode = "zh-cn"
+DefaultContentLanguage = "zh-cn"
 title = "My New Hugo Site"
 paginate = 10
 theme = "hulga"
@@ -65,6 +69,9 @@ theme = "hulga"
 
   # enable prefers-color-scheme:dark
   darkMedia = true
+
+  # enable hero section's is-bold effect
+  heroBold = true
 
 # to enable different hightlight themes in light/dark mode 
 [markup]

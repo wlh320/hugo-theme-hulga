@@ -1,0 +1,23 @@
+[categories]
+other = "分类"
+
+[tags]
+other = "标签"
+
+[taxo_cat_before]
+other = "分类 "
+
+[taxo_tag_before]
+other = "标签 "
+
+[taxo_after]
+other = " 中的文章"
+
+[prev_page]
+other = "上一页"
+
+[next_page]
+other = "下一页"
+
+[archives]
+other = "本博客共 {{ .Count }} 篇博文"

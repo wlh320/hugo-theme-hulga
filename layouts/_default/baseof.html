@@ -4,12 +4,11 @@
 
 <body>
   <div id="main">
-    {{- partial "nav.html" . -}}
-    <!-- {{- partial "header.html" . -}} -->
     {{- block "main" . }}{{- end }}
   </div>
   {{- partial "footer.html" . -}}
   {{- partial "backtotop.html" . -}}
+  {{- partial "navburger.html" . -}}
   {{- block "script" . }}{{- end }}
 </body>
 

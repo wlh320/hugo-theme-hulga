@@ -3,32 +3,37 @@
 <!-- {{- partial "posts.html" . -}} -->
 <section class="section">
   <div class="container">
-    <div class="content">
-      {{ if eq .Data.Singular "category" }}
-      <h3>
-        分类
-        <span class="tag mytag">{{ .Data.Term }}</span>
-        中的文章
-      </h3>
-      {{ else if eq .Data.Singular "tag" }}
-      <h3>
-        包含标签
-        <span class="tag mytag"><a>{{ .Data.Term }}</a></span>
-        的文章
-      </h3>
-      {{ end }}
-    </div>
-    <div class="post-lists">
-      {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-      {{ range $paginator.Pages }}
-      <div class="one-post box">
-        <div class="is-6">{{ .Date.Format "2006/01/02" }}</div>
-        <div><a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a></div>
+    <div class="columns">
+      <div class="column is-2"></div>
+      <div class="column is-8">
+        <div class="content">
+          {{ if eq .Data.Singular "category" }}
+          <h3>
+            {{- i18n "taxo_cat_before" -}}
+            <span class="tag mytag">{{ .Data.Term }}</span>
+            {{- i18n "taxo_after" -}}
+          </h3>
+          {{ else if eq .Data.Singular "tag" }}
+          <h3>
+            {{- i18n "taxo_tag_before" -}}
+            <span class="tag mytag"><a>{{ .Data.Term }}</a></span>
+            {{- i18n "taxo_after" -}}
+          </h3>
+          {{ end }}
+        </div>
+        <div class="post-lists">
+          {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+          {{ range $paginator.Pages }}
+          <div class="one-post box">
+            <div class="is-6">{{ .Date.Format "2006/01/02" }}</div>
+            <div><a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a></div>
+          </div>
+          {{ end }}
+          {{ partial "paginator.html" . }}
+        </div>
       </div>
-      {{ end }}
-      {{ partial "paginator.html" . }}
+      <div class="column is-2"></div>
     </div>
-
   </div>
 </section>
 

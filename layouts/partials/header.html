@@ -1,4 +1,7 @@
-<section class="hero is-primary shadow-hero">
+<section class="hero is-primary shadow-hero {{ if .Site.Params.heroBold }}is-bold{{ end }}">
+  <div class="hero-head">
+    {{ partial "nav.html" . }}
+  </div>
   <div class="hero-body">
     <div class="container has-text-centered">
       <h1 class="title">

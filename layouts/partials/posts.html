@@ -1,86 +1,88 @@
-<section class="section">
+<section class="section post-box-section">
   <div class="container">
     <div class="columns">
-      <div class="column is-two-thirds">
-        <div class="post-lists">
-          {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-          {{ range $paginator.Pages }}
-          <div class="box post-box">
-            {{ with .Params.Tags }}
-            <div class="post-box-tags">
-              {{ range .}}
-              <span class="post-tag post-box-tag">
-                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
-              </span>
+      <div class="column is-10 is-offset-1">
+        <div class="columns">
+          <div class="column is-8">
+            <div class="post-lists">
+              {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+              {{ range $paginator.Pages }}
+              <div class="box post-box">
+                {{ with .Params.Tags }}
+                <div class="post-box-tags">
+                  {{ range .}}
+                  <span class="post-tag post-box-tag">
+                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+                  </span>
+                  {{ end }}
+                </div>
+                {{ end }}
+                <div class="post-box-title">
+                  <a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a>
+                </div>
+                <div class="post-box-meta">
+                  {{ .Date.Format "2006/01/02" }}
+                  {{ with .Params.Categories }} ・
+                  {{ range .}}
+                  <span class="post-tag post-box-category">
+                    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                  </span>
+                  {{ end }}
+                  {{ end }}
+                </div>
+              </div>
               {{ end }}
+            </div>
+            <div style="padding-top: 1.5rem;">
+              {{ partial "paginator.html" . }}
+            </div>
+          </div>
+          <div class="column is-4 is-hidden-mobile">
+            {{ if .Site.Taxonomies.categories }}
+            <div class="card">
+              <header class="card-header is-primary">
+                <p class="card-header-title">
+                  {{ i18n "categories" }}
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                  <div class="container" style="margin-bottom: 0.5rem">
+                    <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a>
+                    <span class="tag is-pulled-right">
+                      {{ $taxonomy.Count }}
+                    </span>
+                  </div>
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+            <br>
+            {{ end }}
+
+            {{ if .Site.Taxonomies.tags }}
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  {{ i18n "tags" }}
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <div class="tags">
+                    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                    <span class="tag">
+                      <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/">{{ $name }}</a>
+                    </span>
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
             </div>
             {{ end }}
-            <div class="post-box-title">
-              <a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a>
-            </div>
-            <div class="post-box-meta">
-              {{ .Date.Format "2006/01/02" }}
-              {{ with .Params.Categories }} ・
-              {{ range .}}
-              <span class="post-tag post-box-category">
-                <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-              </span>
-              {{ end }}
-              {{ end }}
-            </div>
-          </div>
-          {{ end }}
-        </div>
-        <div style="padding-top: 1.5rem;">
-          {{ partial "paginator.html" . }}
-        </div>
-      </div>
-
-      <div class="column is-one-third is-hidden-mobile">
-        {{ if .Site.Taxonomies.categories }}
-        <div class="card">
-          <header class="card-header is-primary">
-            <p class="card-header-title">
-              分类
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="content">
-              {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-              <div class="container" style="margin-bottom: 0.5rem">
-                <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a>
-                <span class="tag is-pulled-right">
-                  {{ $taxonomy.Count }}
-                </span>
-              </div>
-              {{ end }}
-
-            </div>
           </div>
         </div>
-        <br>
-        {{ end }}
-
-        {{ if .Site.Taxonomies.tags }}
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-              标签
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="content">
-              <div class="tags">
-                {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-                <span class="tag">
-                  <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/">{{ $name }}</a>
-                </span>
-                {{ end }}
-              </div>
-            </div>
-          </div>
-        </div>
-        {{ end }}
       </div>
     </div>
   </div>

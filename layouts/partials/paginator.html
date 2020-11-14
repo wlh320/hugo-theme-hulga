@@ -1,27 +1,35 @@
-{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-{{ with $paginator }}
-
-{{ if gt .TotalPages 1 }}
+{{ $pag := .Paginate (where .Data.Pages "Type" "post") }}
+{{ if gt $pag.TotalPages 1 -}}
 <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-    {{ if .HasPrev }}
-      <a class="pagination-previous" href="{{ .Prev.URL }}">上一页</a>
-    {{ end }}
-
-    {{ if .HasNext }}
-      <a class="pagination-next" href="{{ .Next.URL }}">下一页</a>
-    {{ end }}
-
-    {{ if lt .TotalPages 20 }}
-    <ul class="pagination-list">
-    {{ range .Pagers }}
+  <a class="pagination-previous" {{ if $pag.HasPrev }} href="{{ $pag.Prev.URL }}" {{ else }} disabled {{ end }}>
+    {{ i18n "prev_page"}}
+  </a>
+  <ul class="pagination-list">
+    {{- $ellipsed := false -}}
+    {{- $shouldEllipse := false -}}
+    {{- range $pag.Pagers -}}
+      {{- $right := sub .TotalPages .PageNumber -}}
+      {{- $showNumber := or (le .PageNumber 3) (eq $right 0) -}}
+      {{- $showNumber := or $showNumber (le .TotalPages 5) -}}{{/* Issue #7523 */}}
+      {{- $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber 2)) (lt .PageNumber (add $pag.PageNumber 2))) -}}
+      {{- if $showNumber -}}
+        {{- $ellipsed = false -}}
+        {{- $shouldEllipse = false -}}
+      {{- else -}}
+        {{- $shouldEllipse = not $ellipsed -}}
+        {{- $ellipsed = true -}}
+      {{- end -}}
+      {{- if $showNumber }}
       <li>
-        <a class="pagination-link {{ if eq .PageNumber $.Paginator.PageNumber }}is-current{{ end }}" 
+        <a class="pagination-link {{ if eq . $pag }}is-current{{ end }}"
           href="{{ .URL }}">{{ .PageNumber }}</a>
       </li>
-    {{ end }}
-    </ul>
-    {{ end }}
-</nav>
-{{ end }}
-
+      {{- else if $shouldEllipse }}
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      {{- end -}}
+    {{- end }}
+  </ul>
+  <a class="pagination-next" {{ if $pag.HasNext }} href="{{ $pag.Next.URL }}" {{ else }} disabled {{ end }}>
+    {{ i18n "next_page"}}
+  </a>
 {{ end }}
