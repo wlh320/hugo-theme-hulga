@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{- partial "header.html" . -}}
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-2"></div>
+      <div class="column is-8">
+        {{ if eq .Data.Singular "category" }}
+        <nav class="breadcrumb is-centered is-medium" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="/categories">{{- i18n "categories" -}}</a></li>
+            <li class="is-active"><a href="#">{{ .Data.Term }}</a></li>
+          </ul>
+        </nav>
+        {{ else if eq .Data.Singular "tag" }}
+        <nav class="breadcrumb is-centered is-medium" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="/tags">{{- i18n "tags" -}}</a></li>
+            <li class="is-active"><a href="#">{{ .Data.Term }}</a></li>
+          </ul>
+        </nav>
+        {{ end }}
+        <div class="post-lists">
+          {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+          {{ range $paginator.Pages }}
+              <div class="box post-box">
+                {{ with .Params.Tags }}
+                <div class="post-box-tags">
+                  {{ range .}}
+                  <span class="post-tag post-box-tag">
+                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+                  </span>
+                  {{ end }}
+                </div>
+                {{ end }}
+                <div class="post-box-title">
+                  <a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a>
+                </div>
+                <div class="post-box-meta">
+                  {{ .Date.Format "2006/01/02" }}
+                  {{ with .Params.Categories }} ・
+                  {{ range .}}
+                  <span class="post-tag post-box-category">
+                    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                  </span>
+                  {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+          {{ end }}
+          {{ partial "paginator.html" . }}
+        </div>
+      </div>
+      <div class="column is-2"></div>
+    </div>
+  </div>
+</section>
+{{ end }}

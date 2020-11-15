@@ -7,12 +7,15 @@
 
 [Demo site](https://v4.zilch40.wang)
 
+[My Blog](https://blog.zilch40.wang)
+
 ## Features
 
 - small & fast
 - basic functions:
-  - category & tag
-  - archives
+  - category list&term pages
+  - tag list&term pages
+  - archives pages
 - TOC sidebar
 - `prefers-color-scheme` media support
 
@@ -58,7 +61,7 @@ theme = "hulga"
   # enable katex rendering
   math = true
 
-  # enable postcss, mainly for css purge (119kB->16kB->4kB gzipped, but this makes build slower)
+  # enable postcss, mainly for css purge (129kB->20kB->4.8kB gzipped, but this makes build slower)
   postcss = true
 
   # enable toc on post page

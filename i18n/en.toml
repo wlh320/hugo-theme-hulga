@@ -4,15 +4,6 @@ other = "Categories"
 [tags]
 other = "Tags"
 
-[taxo_cat_before]
-other = "Articles with category "
-
-[taxo_tag_before]
-other = "Articles with tag "
-
-[taxo_after]
-other = ""
-
 [prev_page]
 other = "Previous"
 

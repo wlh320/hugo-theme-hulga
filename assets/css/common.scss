@@ -6,7 +6,8 @@
 @import "../sass/elements/title";
 @import "../sass/elements/tag";
 @import "../sass/elements/box";
-// @import "../sass/form/_all";
+@import "../sass/form/shared";
+@import "../sass/form/tools";
 @import "../sass/components/breadcrumb";
 @import "../sass/components/navbar";
 @import "../sass/components/pagination";
@@ -88,14 +89,6 @@ a {
 }
 
 /*category and tags*/
-.mytag {
-  background: transparent !important;
-  border: solid 2px;
-  font-size: 1rem !important;
-}
-.mytag a {
-  color: currentColor;
-}
 .post-tag {
   margin-right: 0.5em;
 }

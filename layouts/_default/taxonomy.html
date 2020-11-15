@@ -1,40 +1,59 @@
 {{ define "main" }}
-{{- partial "header.html" . -}}
-<!-- {{- partial "posts.html" . -}} -->
+{{ partial "header.html" . }}
 <section class="section">
   <div class="container">
     <div class="columns">
       <div class="column is-2"></div>
       <div class="column is-8">
-        <div class="content">
-          {{ if eq .Data.Singular "category" }}
-          <h3>
-            {{- i18n "taxo_cat_before" -}}
-            <span class="tag mytag">{{ .Data.Term }}</span>
-            {{- i18n "taxo_after" -}}
-          </h3>
-          {{ else if eq .Data.Singular "tag" }}
-          <h3>
-            {{- i18n "taxo_tag_before" -}}
-            <span class="tag mytag"><a>{{ .Data.Term }}</a></span>
-            {{- i18n "taxo_after" -}}
-          </h3>
-          {{ end }}
-        </div>
-        <div class="post-lists">
-          {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-          {{ range $paginator.Pages }}
-          <div class="one-post box">
-            <div class="is-6">{{ .Date.Format "2006/01/02" }}</div>
-            <div><a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a></div>
+        {{ if eq .Data.Singular "category" }}
+        <div class="card">
+          <header class="card-header is-primary">
+            <p class="card-header-title">
+              {{ i18n "categories" }}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content is-medium">
+              {{ range .Site.Taxonomies.categories.ByCount }}
+              <div class="container" style="margin-bottom: 0.5rem">
+                <a href="{{ "/categories/" | relLangURL }}{{ .Name | urlize }}">{{ .Name }}</a>
+                <span class="tag is-pulled-right">
+                  {{ .Count }}
+                </span>
+              </div>
+              {{ end }}
+            </div>
           </div>
-          {{ end }}
-          {{ partial "paginator.html" . }}
         </div>
+        <br>
+        {{ end }}
+
+        {{ if eq .Data.Singular "tag" }}
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              {{ i18n "tags" }}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="field is-grouped is-grouped-multiline">
+              {{ range .Site.Taxonomies.tags.ByCount }}
+              <div class="control">
+                <div class="tags has-addons">
+                  <a class="tag is-medium" href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
+                  <span class="tag is-medium is-primary">
+                    {{ .Count }}
+                  </span>
+                </div>
+              </div>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+        {{ end }}
       </div>
       <div class="column is-2"></div>
     </div>
   </div>
 </section>
-
 {{ end }}
