@@ -4,12 +4,12 @@
 name = "hulga"
 license = "MIT"
 licenselink = "https://github.com/wlh320/hugo-theme-hulga/blob/master/LICENSE"
-description = "hugo+bulma=hulga"
+description = "A simple hugo blog theme based on bulma"
 homepage = "http://github.com/wlh320/hugo-theme-hulga/"
 tags = ['bulma', 'blog', 'fast', 'simple', 'dark']
 features = ['bulma', 'fast', 'toc', 'dark mode', 'archives', 'pwa']
-min_version = "0.41.0"
+min_version = "0.55.0"
 
 [author]
   name = "wlh"
-  homepage = "blog.zilch40.wang"
+  homepage = "https://github.com/wlh320"
