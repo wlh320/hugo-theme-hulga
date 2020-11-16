@@ -1,7 +1,7 @@
 {{ $pag := .Paginate (where .Data.Pages "Type" "post") }}
 {{ if gt $pag.TotalPages 1 -}}
 <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-  <a class="pagination-previous" {{ if $pag.HasPrev }} href="{{ $pag.Prev.URL }}" {{ else }} disabled {{ end }}>
+  <a class="pagination-previous" {{ if $pag.HasPrev }} href="{{ $pag.Prev.URL }}" {{ else }} href="#" disabled {{ end }}>
     {{ i18n "prev_page"}}
   </a>
   <ul class="pagination-list">
@@ -29,7 +29,7 @@
       {{- end -}}
     {{- end }}
   </ul>
-  <a class="pagination-next" {{ if $pag.HasNext }} href="{{ $pag.Next.URL }}" {{ else }} disabled {{ end }}>
+  <a class="pagination-next" {{ if $pag.HasNext }} href="{{ $pag.Next.URL }}" {{ else }} href="#" disabled {{ end }}>
     {{ i18n "next_page"}}
   </a>
 {{ end }}

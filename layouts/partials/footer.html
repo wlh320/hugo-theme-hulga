@@ -10,4 +10,7 @@
     </p>
   </div>
 </footer>
+{{ if .Site.Params.pwa }}
+{{ partial "pwa.html" . }}
+{{ end}}
 {{ template "_internal/google_analytics_async.html" . }}

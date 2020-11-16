@@ -10,5 +10,8 @@ other = "上一页"
 [next_page]
 other = "下一页"
 
-[archives]
+[archives_count]
 other = "本博客共 {{ .Count }} 篇博文"
+
+[archives]
+other = "归档"

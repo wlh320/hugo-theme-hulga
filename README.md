@@ -18,6 +18,7 @@
   - archives pages
 - TOC sidebar
 - `prefers-color-scheme` media support
+- PWA support
 
 ## Install
 
@@ -75,6 +76,9 @@ theme = "hulga"
 
   # enable hero section's is-bold effect
   heroBold = true
+
+  # enable PWA, prepare your icons and DON'T forget to modify manifest.json
+  pwa = true
 
 # to enable different hightlight themes in light/dark mode 
 [markup]

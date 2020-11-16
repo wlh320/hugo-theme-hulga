@@ -1,1 +1,4 @@
-{{ with .GetPage "/post" }}{{.Render}}{{end}}
+{{ define "main" }}
+{{- partial "header.html" . -}}
+{{- partial "posts.html" . -}}
+{{ end }}

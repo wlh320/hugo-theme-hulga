@@ -10,5 +10,8 @@ other = "Previous"
 [next_page]
 other = "Next"
 
-[archives]
+[archives_count]
 other = "There are {{ .Count }} articles in this blog"
+
+[archives]
+other = "Archives"

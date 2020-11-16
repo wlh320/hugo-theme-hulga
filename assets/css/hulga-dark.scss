@@ -8,7 +8,7 @@
 // $archblue: #1793d0;
 
 {{ if .Site.Params.primaryColor }}
-$primary: {{ .Site.Params.primaryColor }};
+$primary: lighten({{ .Site.Params.primaryColor }}, 5);
 {{end}}
 
 // Import only what you need from Bulma
@@ -32,9 +32,12 @@ $pagination-border-color: $border;
 @import "../sass/dark/overrides";
 
 // dark override
-.sidebar {
-  height: 100%;
-}
 .footer {
   background: #282f2f;
+}
+.counter-tag {
+  border-left: 1px solid #282f2f;
+}
+.tag:not(body) {
+  background-color: rgba($black-bis, 0.2);
 }

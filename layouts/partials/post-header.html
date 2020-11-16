@@ -1,0 +1,37 @@
+<section class="hero is-primary shadow-hero {{ if .Site.Params.heroBold}} is-bold {{ end }}">
+  <div class="hero-head">
+    {{ partial "nav.html" . }}
+  </div>
+  <div class="hero-body">
+    <header class="container has-text-centered">
+      <h1 class="title post-title">
+        {{ .Title }}
+      </h1>
+      <h2 class="subtitle">
+        {{- if isset .Params "date" -}}
+        <time class="post-meta">{{ .Date.Format "2006/01/02" }}</time>
+        {{- end -}}
+        {{ with .Params.Categories }} ・
+          {{ range .}}
+            <span class="post-tag post-meta">
+              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+            </span>
+          {{ end }}
+        {{ end }}
+        {{- if eq .Type "archives" -}}
+        {{- $count := len (where (where .Site.Pages "Type" "post") "Kind" "page") -}}
+        {{ i18n "archives_count" (dict "Count" $count) }}
+        {{- end -}}
+      </h2>
+      {{ with .Params.tags }}
+      <div class="tagbox post-meta">
+        {{ range . }}
+        <span class="post-tag">
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+        </span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </header>
+  </div>
+</section>

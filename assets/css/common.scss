@@ -32,7 +32,9 @@
   border-color: $primary;
   color: $white;
 }
-
+a {
+  color: $primary;
+}
 /* fixed footer */
 body {
   display: flex;
@@ -48,9 +50,6 @@ body {
   box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
-}
-a {
-  color: $primary;
 }
 
 /* link */
@@ -100,6 +99,9 @@ a {
 }
 .post-meta {
   opacity: 0.9;
+}
+.counter-tag {
+  border-left: 1px solid $white;
 }
 
 /* posts */

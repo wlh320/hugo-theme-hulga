@@ -5,7 +5,7 @@
         <div class="columns">
           <div class="column is-8">
             <div class="post-lists">
-              {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+              {{ $paginator := .Paginate (where (where .Site.Pages "Type" "post") "Kind" "page") }}
               {{ range $paginator.Pages }}
               <div class="box post-box">
                 {{ with .Params.Tags }}
@@ -74,7 +74,7 @@
                   <div class="control">
                     <div class="tags has-addons">
                       <a class="tag" href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
-                      <span class="tag">
+                      <span class="tag counter-tag">
                         {{ .Count }}
                       </span>
                     </div>

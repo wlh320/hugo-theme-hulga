@@ -1,48 +1,11 @@
-<section class="hero is-primary shadow-hero {{ if .Site.Params.heroBold}} is-bold {{ end }}">
-  <div class="hero-head">
-    {{ partial "nav.html" . }}
-  </div>
-  <div class="hero-body">
-    {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
-    <header class="container">
-    {{ else }}
-    <header class="container has-text-centered">
-    {{ end }}
-      <h1 class="title post-title">
-        {{ .Title }}
-      </h1>
-      <h2 class="subtitle">
-        {{- if isset .Params "date" -}}
-        <time class="post-meta">{{ .Date.Format "2006/01/02" }}</time>
-        {{- end -}}
-        {{ with .Params.Categories }} ・
-        {{ range .}}
-        <span class="post-tag post-meta">
-          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-        </span>
-        {{ end }}
-        {{ end }}
-      </h2>
-      {{ with .Params.tags }}
-      <div class="tagbox post-meta">
-        {{ range . }}
-        <span class="post-tag">
-          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
-        </span>
-        {{ end }}
-        <!-- <span class="post-tag">#Hello</span><span class="post-tag">#Hello</span> -->
-      </div>
-      {{ end }}
-    </header>
-  </div>
-</section>
+{{ partial "post-header.html" . }}
 <section class="section">
   <div class="container">
     <div class="columns">
       {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
-      <div class="column is-three-quarters">
+      <div class="column is-1 is-hidden-mobile"></div>
+      <div class="column is-8">
       {{ else }}
-      <!-- <div class="column is-1 is-hidden-mobile"></div> -->
       <div class="column is-three-fifths is-offset-one-fifth">
       {{ end }}
         <article class="content" id="post-content">

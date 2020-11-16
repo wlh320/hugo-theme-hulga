@@ -1,15 +1,17 @@
 {{ define "main" }}
-{{ partial "header.html" . }}
+{{ partial "post-header.html" . }}
 <section class="section">
   <div class="container content">
     <div class="columns">
       <div class="column is-8 is-offset-2">
-        {{ $count := len (where (where .Site.Pages "Type" "post") "Kind" "page") }}
-        <h2 class="has-text-centered">{{ i18n "archives" (dict "Count" $count) }}</h2>
         <div class="post-archive">
           {{ range (where (where .Site.Pages "Type" "post") "Kind" "page").GroupByDate "2006" }}
           <div class="box container">
-            <h3>{{ .Key }}</h3>
+            <h3>{{ .Key }}
+            <span class="tag is-medium is-pulled-right">
+              {{ len .Pages }}
+            </span>
+            </h3>
             <ul class="listing">
               {{ range .Pages }}
               <li>
