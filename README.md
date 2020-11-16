@@ -2,8 +2,15 @@
 
 > hugo + bulma = hulga
 
+## Screenshot
+
+build `hugoBasicExample` without any config of this theme
+
+![screenshot](./images/screenshot.png)
 
 ## Demo
+
+build hugo site with configs
 
 [Demo site](https://v4.zilch40.wang)
 
@@ -108,7 +115,7 @@ tag = "tags"
 
 ```
 
-## Acknowlegement
+## Acknowledgement
 
 本项目的诞生离不开以下开源项目：
 
@@ -117,6 +124,7 @@ tag = "tags"
 - [bulmaswatch](https://jenil.github.io/bulmaswatch/) 借用了其中的 dark 主题
 - [purgecss](https://purgecss.com/) [cssnano](https://cssnano.co/) 缩减CSS文件大小
 - [katex](https://katex.org/) $\LaTeX$ 公式渲染
+- [anchorjs](https://github.com/bryanbraun/anchorjs) 添加锚链
 - [tocbot](https://tscanlin.github.io/tocbot/) 生成目录
 - [vanilla-back-to-top](https://github.com/vfeskov/vanilla-back-to-top) 回到顶部 (好懒，这都不自己写)
 

@@ -7,7 +7,7 @@ licenselink = "https://github.com/wlh320/hugo-theme-hulga/blob/master/LICENSE"
 description = "hugo+bulma=hulga"
 homepage = "http://github.com/wlh320/hugo-theme-hulga/"
 tags = ['bulma', 'blog', 'fast', 'simple', 'dark']
-features = ['bulma', 'fast', 'toc', 'dark mode']
+features = ['bulma', 'fast', 'toc', 'dark mode', 'archives', 'pwa']
 min_version = "0.41.0"
 
 [author]
