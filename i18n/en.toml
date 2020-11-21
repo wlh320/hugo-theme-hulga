@@ -15,3 +15,6 @@ other = "There are {{ .Count }} articles in this blog"
 
 [archives]
 other = "Archives"
+
+[404-info]
+other = "Page not found, please check the URL"

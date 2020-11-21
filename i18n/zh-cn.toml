@@ -15,3 +15,6 @@ other = "本博客共 {{ .Count }} 篇博文"
 
 [archives]
 other = "归档"
+
+[404-info]
+other = "页面未找到，请检查 URL "

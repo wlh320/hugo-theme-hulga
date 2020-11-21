@@ -6,7 +6,7 @@
 
 build `hugoBasicExample` without any config of this theme
 
-![screenshot](./images/screenshot.png)
+![screenshot](https://github.com/wlh320/hugo-theme-hulga/blob/main/images/screenshot.png)
 
 ## Demo
 

@@ -1,4 +1,4 @@
-<section class="hero is-primary shadow-hero {{ if .Site.Params.heroBold}} is-bold {{ end }}">
+<section class="hero is-primary shadow-hero {{ if .Site.Params.heroBold }} is-bold {{ end }}">
   <div class="hero-head">
     {{ partial "nav.html" . }}
   </div>
@@ -11,10 +11,11 @@
         {{- if isset .Params "date" -}}
         <time class="post-meta">{{ .Date.Format "2006/01/02" }}</time>
         {{- end -}}
+        {{- $ctx := . -}}
         {{ with .Params.Categories }} ・
           {{ range .}}
             <span class="post-tag post-meta">
-              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+              <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
             </span>
           {{ end }}
         {{ end }}
@@ -27,7 +28,7 @@
       <div class="tagbox post-meta">
         {{ range . }}
         <span class="post-tag">
-          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+          <a href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
         </span>
         {{ end }}
       </div>

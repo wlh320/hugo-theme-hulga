@@ -1,3 +1,4 @@
+{{- $ctx := . -}}
 <section class="section post-box-section">
   <div class="container">
     <div class="columns">
@@ -12,20 +13,20 @@
                 <div class="post-box-tags">
                   {{ range .}}
                   <span class="post-tag post-box-tag">
-                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+                    <a href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ . | urlize}}">#{{ . }}</a>
                   </span>
                   {{ end }}
                 </div>
                 {{ end }}
                 <div class="post-box-title">
-                  <a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a>
+                  <a href="{{ .Permalink }}" class="title is-size-5">{{ .Title }}</a>
                 </div>
                 <div class="post-box-meta">
                   {{ .Date.Format "2006/01/02" }}
                   {{ with .Params.Categories }} ・
                   {{ range .}}
                   <span class="post-tag post-box-category">
-                    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                    <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
                   </span>
                   {{ end }}
                   {{ end }}
@@ -49,7 +50,7 @@
                 <div class="content">
                   {{ range .Site.Taxonomies.categories.ByCount }}
                   <div class="container" style="margin-bottom: 0.5rem">
-                    <a href="{{ "/categories/" | relLangURL }}{{ .Name | urlize }}">{{ .Name }}</a>
+                    <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ .Name | urlize }}">{{ .Name }}</a>
                     <span class="tag is-pulled-right">
                       {{ .Count }}
                     </span>
@@ -73,7 +74,7 @@
                   {{ range .Site.Taxonomies.tags.ByCount }}
                   <div class="control">
                     <div class="tags has-addons">
-                      <a class="tag" href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
+                      <a class="tag" href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
                       <span class="tag counter-tag">
                         {{ .Count }}
                       </span>

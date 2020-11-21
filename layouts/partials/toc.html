@@ -1,8 +1,8 @@
 {{ $options := (dict "outputStyle" "compressed" "includePaths" (slice "sass")) }}
 {{ $tocScss := resources.Get "css/toc.scss" }}
 {{ $toc := $tocScss | resources.ExecuteAsTemplate "css/toc.scss" . | resources.ToCSS $options | resources.Minify }}
-<link rel="stylesheet" type="text/css" href="{{ $toc.Permalink | relURL }}">
-<script src="/js/tocbot.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ $toc.Permalink | absURL }}">
+<script src={{ "js/tocbot.min.js" | absURL }}></script>
 {{ $globalAutoCollapseToc := .Site.Params.autoCollapseToc | default false }}
 <script>
     tocbot.init({

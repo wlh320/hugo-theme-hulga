@@ -6,11 +6,11 @@
     link.href = url;
   }
   {{ if .Site.Params.darkMedia }}
-  var darkcss = '/css/monokai.css'
+  var darkcss = {{"css/monokai.css" | absURL}}
   {{ else }}
-  var darkcss = '/css/monokailight.css'
+  var darkcss = {{"css/monokailight.css" | absURL}}
   {{ end }}
-  var lightcss = '/css/monokailight.css'
+  var lightcss = {{"css/monokailight.css" | absURL}}
   // load syntax css
   if (window.matchMedia('(prefers-color-scheme)').media === 'not all') {
     // alert('Browser doesn\'t support dark mode');
