@@ -2,7 +2,11 @@
 {{ $tocScss := resources.Get "css/toc.scss" }}
 {{ $toc := $tocScss | resources.ExecuteAsTemplate "css/toc.scss" . | resources.ToCSS $options | resources.Minify }}
 <link rel="stylesheet" type="text/css" href="{{ $toc.Permalink | absURL }}">
+{{- if .Site.Params.noCDN -}}
 <script src={{ "js/tocbot.min.js" | absURL }}></script>
+{{- else -}}
+<script src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js"></script>
+{{- end -}}
 {{ $globalAutoCollapseToc := .Site.Params.autoCollapseToc | default false }}
 <script>
     tocbot.init({

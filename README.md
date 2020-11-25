@@ -66,13 +66,13 @@ theme = "hulga"
   # copyright text on footer
   copyright = "Copyright © 2020 wlh. All rights reserved."
 
-  # enable katex rendering
+  # enable katex rendering on every post page
   math = true
 
   # enable postcss, mainly for css purge (129kB->20kB->4.8kB gzipped, but this makes build slower)
   postcss = true
 
-  # enable toc on post page
+  # enable toc on every post page
   toc = true
 
   # enable TOC auto collapse
@@ -86,6 +86,9 @@ theme = "hulga"
 
   # enable PWA, prepare your icons and DON'T forget to modify manifest.json
   pwa = true
+
+  # disable jsdelivr cdn, default false
+  noCDN = false
 
 # to enable different hightlight themes in light/dark mode 
 [markup]

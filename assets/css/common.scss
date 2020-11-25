@@ -78,6 +78,9 @@ body {
 .highlight {
   position: relative;
 }
+.highlight:not(:last-child) {
+  margin-bottom: 1em;
+}
 .chroma code:before {
   content: attr(data-lang);
   position: absolute;

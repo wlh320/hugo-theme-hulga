@@ -1,4 +1,8 @@
+{{- if .Site.Params.noCDN -}}
 <script src={{ "js/vanilla-back-to-top.min.js" | absURL }}></script>
+{{- else -}}
+<script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+{{- end -}}
 <script>
 addBackToTop({
   diameter: 42,
