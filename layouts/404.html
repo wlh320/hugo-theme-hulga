@@ -4,23 +4,15 @@
 
 <body>
   <div id="main">
-    <!-- {{- partial "nav.html" . -}} -->
-    <!-- {{- partial "header.html" . -}} -->
-    {{- block "404-main" . }}{{- end }}
+    <article class="message is-primary is-large">
+      <div class="message-header">
+        <p>404 Page Not Found</p>
+      </div>
+      <div class="message-body">
+        <p>{{ i18n "404-info" }}</p>
+      </div>
+    </article>
   </div>
-  <!-- {{- partial "footer.html" . -}} -->
-  <!-- {{- partial "backtotop.html" . -}} -->
-  <!-- {{- block "script" . }}{{- end }} -->
 </body>
 
 </html>
-{{ define "404-main" }}
-<article class="message is-primary is-large">
-  <div class="message-header">
-    <p>404 Page Not Found</p>
-  </div>
-  <div class="message-body">
-    <p>{{ i18n "404-info" }}</p>
-  </div>
-</article>
-{{ end }}

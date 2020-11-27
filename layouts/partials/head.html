@@ -2,32 +2,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   {{- if .Site.Params.primaryColor -}}
   <meta name="msapplication-TileColor" content="{{.Site.Params.primaryColor}}">
   <meta name="theme-color" content="{{.Site.Params.primaryColor}}">
   {{- end -}}
-  {{ if .IsHome -}}
-  <title>{{ .Site.Title }} | {{ .Site.Params.subtitle}}</title>
+  {{- if .IsHome -}}
+  <title>{{ .Site.Title }} | {{ .Site.Params.subtitle }}</title>
   <meta property="og:title" content="{{ .Site.Title }} | {{ .Site.Params.subtitle }}">
   <meta property="og:type" content="website">
   {{ if .Site.Params.keywords }}
-  <meta name="Keywords" content="{{.Site.Params.keywords}}">
+  <meta name="keywords" content="{{.Site.Params.keywords}}">
   {{ end }}
-  {{ if .Site.Params.keywords }}
+  {{ if .Site.Params.description }}
   <meta name="description" content="{{ .Site.Params.description }}">
   {{ end }}
   {{- else -}}
@@ -40,33 +27,44 @@
   {{ with .Params.lastmod }}
   <meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05+08:00" }}">
   {{ end }}
-  <meta name="Keywords" content="{{ if .Keywords }}{{ .Keywords }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+  <meta name="keywords" content="{{ if .Keywords }}{{ .Keywords }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
   <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}">
-  {{ if .Params.author -}}
+  {{- end -}}
+  {{ if .Site.Params.author -}}
   <meta name="author" content="{{ .Params.author }}">
   {{- end }}
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  {{- $options := (dict "outputStyle" "compressed" "includePaths" (slice "sass")) }}
+  {{- $lightScss := resources.Get "css/hulga.scss" }}
+  {{- $darkScss := resources.Get "css/hulga-dark.scss" }}
+  {{- if .Site.Params.postcss }}
+  {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
+  <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
+  {{- if .Site.Params.darkMedia }}
+  {{- $dark := $darkScss | resources.ExecuteAsTemplate "css/hulga-dark.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
+  <link rel="stylesheet" type="text/css" href="{{ $dark.Permalink | relURL }}" media="(prefers-color-scheme: dark)">
   {{- end }}
-
-  {{ $options := (dict "outputStyle" "compressed" "includePaths" (slice "sass")) }}
-  {{ $lightScss := resources.Get "css/hulga.scss" }}
-  {{ $darkScss := resources.Get "css/hulga-dark.scss" }}
-  {{ if .Site.Params.postcss }}
-  {{ $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
+  {{- else }}
+  {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
   <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
-  {{ if .Site.Params.darkMedia }}
-  {{ $dark := $darkScss | resources.ExecuteAsTemplate "css/hulga-dark.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
+  {{- if .Site.Params.darkMedia }}
+  {{- $dark := $darkScss | resources.ExecuteAsTemplate "css/hulga-dark.scss" . | resources.ToCSS $options | resources.Minify }}
   <link rel="stylesheet" type="text/css" href="{{ $dark.Permalink | relURL }}" media="(prefers-color-scheme: dark)">
-  {{ end }}
-  {{ else }}
-  {{ $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
-  <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
-  {{ if .Site.Params.darkMedia }}
-  {{ $dark := $darkScss | resources.ExecuteAsTemplate "css/hulga-dark.scss" . | resources.ToCSS $options | resources.Minify }}
-  <link rel="stylesheet" type="text/css" href="{{ $dark.Permalink | relURL }}" media="(prefers-color-scheme: dark)">
-  {{ end }}
-  {{ end }}
-  {{ if .Site.Params.pwa }}
+  {{- end }}
+  {{- end }}
+  {{- if .Site.Params.pwa }}
   <link rel="manifest" href="/manifest.json">
-  {{ end }}
-
+  {{- end }}
 </head>

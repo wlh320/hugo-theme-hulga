@@ -31,18 +31,18 @@ build hugo site with configs
 
 1. clone to hugo site themes folder
 
-```bash
-git submodule add https://github.com/wlh320/hugo-theme-hulga.git themes/hulga
-```
+    ```bash
+    git submodule add https://github.com/wlh320/hugo-theme-hulga.git themes/hulga
+    ```
 
 2. enable it in `config.toml`
 
-```
-theme = "hulga"
-```
-and then config it.
+    ```
+    theme = "hulga"
+    ```
+    and then config it.
 
-3. to use `postcss`, copy `package.json ` and `postcss.config.js` to the root of your site folder, then `npm install`
+3. to use `postcss`, you should have hugo extended version installed, then copy `package.json` and `postcss.config.js` to the root of your site folder, then `npm install`
 
 ## Config
 
@@ -57,6 +57,11 @@ paginate = 10
 theme = "hulga"
 
 [params]
+  # show in HTML meta tag
+  author = "xxx"
+  keywords = "HTML, hugo, CSS"
+  description = "xxx's blog, xxx xx xxxx"
+
   # change bulma's primary color
   primaryColor = "#1793d0"
 

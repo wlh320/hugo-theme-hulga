@@ -13,7 +13,6 @@
   var lightcss = {{"css/monokailight.css" | absURL}}
   // load syntax css
   if (window.matchMedia('(prefers-color-scheme)').media === 'not all') {
-    // alert('Browser doesn\'t support dark mode');
     addCss(lightcss);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     addCss(darkcss);
