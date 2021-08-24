@@ -109,21 +109,25 @@ body {
 
 /* posts */
 .post-box {
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.25rem 0 0 1.25rem;
+}
+.post-box-title {
+  margin-right: 1.25rem;
+  width: 100%;
 }
 .post-box-tags {
-  position: absolute;
-  right: 0rem;
-  bottom: 0rem;
+  margin-left: auto;
 }
 .post-box-tag {
   color: $primary;
   font-size: 0.9em;
 }
 .post-box-meta {
-  padding-bottom: 0.1rem;
   opacity: 0.8;
   font-size: 0.9rem;
+  width: 100%;
 }
 #back-to-top {
   background: $primary;
