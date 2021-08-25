@@ -17,7 +17,7 @@
               {{- $ctx := . -}}
               {{ range .Site.Taxonomies.categories.ByCount }}
               <div class="container" style="margin-bottom: 0.5rem">
-                <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ .Name | urlize }}">{{ .Name }}</a>
+                <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
                 <span class="tag is-medium is-pulled-right">
                   {{ .Count }}
                 </span>

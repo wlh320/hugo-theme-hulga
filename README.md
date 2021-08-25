@@ -44,6 +44,8 @@ build hugo site with configs
 
 3. to use `postcss`, you should have hugo extended version installed, then copy `package.json` and `postcss.config.js` to the root of your site folder, then `npm install`
 
+4. If your language is not `en` or `zh-cn`, you may need to add i18n files in i18n folder to show some i18n strings in this theme.
+
 ## Config
 
 An example of avaliable params:

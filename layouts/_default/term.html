@@ -25,15 +25,6 @@
           {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
           {{ range $paginator.Pages }}
               <div class="box post-box">
-                {{ with .Params.Tags }}
-                <div class="post-box-tags">
-                  {{ range .}}
-                  <span class="post-tag post-box-tag">
-                    <a href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
-                  </span>
-                  {{ end }}
-                </div>
-                {{ end }}
                 <div class="post-box-title">
                   <a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a>
                 </div>
@@ -42,11 +33,20 @@
                   {{ with .Params.Categories }} ・
                   {{ range .}}
                   <span class="post-tag post-box-category">
-                    <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                    <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
                   </span>
                   {{ end }}
                   {{ end }}
                 </div>
+                {{ with .Params.Tags }}
+                <div class="post-box-tags">
+                  {{ range .}}
+                  <span class="post-tag post-box-tag">
+                    <a href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ . | urlize }}/">#{{ . }}</a>
+                  </span>
+                  {{ end }}
+                </div>
+                {{ end }}
               </div>
           {{ end }}
           {{ partial "paginator.html" . }}

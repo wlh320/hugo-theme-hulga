@@ -127,7 +127,11 @@ body {
 .post-box-meta {
   opacity: 0.8;
   font-size: 0.9rem;
+  margin-right: 1.25rem;
   width: 100%;
+}
+.post-box-meta:last-child {
+  padding-bottom: 1.25rem;
 }
 #back-to-top {
   background: $primary;
