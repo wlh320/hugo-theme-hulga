@@ -6,6 +6,7 @@ module.exports = {
                 standard: ['highlight',
                     'pre',
                     'video',
+                    'img',
                     'code',
                     'content',
                     'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p',
