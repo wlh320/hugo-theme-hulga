@@ -97,6 +97,9 @@ theme = "hulga"
   # disable jsdelivr cdn, default false
   noCDN = false
 
+  # css file to override theme's styles
+  customCSS = "/css/custom.css"
+
 # to enable different hightlight themes in light/dark mode 
 [markup]
   [markup.highlight]

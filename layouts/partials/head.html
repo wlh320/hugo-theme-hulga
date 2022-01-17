@@ -67,4 +67,7 @@
   {{- if .Site.Params.pwa }}
   <link rel="manifest" href="/manifest.json">
   {{- end }}
+  {{ - if .Site.Params.customCSS }}
+  <link rel="stylesheet" type="text/css" href="{{ . | absURL }}">
+  {{- end }}
 </head>
