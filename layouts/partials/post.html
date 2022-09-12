@@ -1,8 +1,12 @@
 {{ partial "post-header.html" . }}
+{{- $setToc := or .Params.toc .Site.Params.toc -}}
+{{- $headers := findRE "<h[1-3].*?>(.|\n])+?</h[1-3]>" .Content -}}
+{{- $hasToc := ge (len $headers) 1 -}}
+{{- $showToc := and $setToc $hasToc -}}
 <section class="section">
   <div class="container">
     <div class="columns">
-      {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+      {{ if $showToc }}
       <div class="column is-1 is-hidden-mobile"></div>
       <div class="column is-8">
       {{ else }}
@@ -12,10 +16,10 @@
           {{- .Content -}}
         </article>
       </div>
-      {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+      {{ if $showToc }}
       <div class="column is-hidden-mobile">
         <div class="sidebar" id="toc">
-          {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+          {{ if $showToc }}
           <div class="post post-toc" id="post-toc">
             <!-- render by tocbot -->
           </div>

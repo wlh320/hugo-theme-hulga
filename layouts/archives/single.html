@@ -15,7 +15,7 @@
             <ul class="listing">
               {{ range .Pages }}
               <li>
-                <span class="date">{{ .Date.Format "2006/01/02" }} </span>
+                <span class="is-family-monospace">{{ .Date.Format "2006/01/02" }} </span>
                 <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
               </li>
               {{ end }}

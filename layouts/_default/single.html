@@ -11,7 +11,7 @@
   {{- partial "math.html" . -}}
   {{ end }}
 
-  {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
+  {{ if or .Params.toc .Site.Params.toc }}
   {{- partial "toc.html" . -}}
   {{ end }}
 {{ end }}
