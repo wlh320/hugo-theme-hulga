@@ -17,7 +17,7 @@
                   {{ with .Params.Categories }} ・
                   {{ range .}}
                   <span class="post-tag post-box-category">
-                    <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+                    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
                   </span>
                   {{ end }}
                   {{ end }}
@@ -26,7 +26,7 @@
                 <div class="post-box-tags">
                   {{ range .}}
                   <span class="post-tag post-box-tag">
-                    <a href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ . | urlize}}/">#{{ . }}</a>
+                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize}}/">#{{ . }}</a>
                   </span>
                   {{ end }}
                 </div>
@@ -50,7 +50,7 @@
                 <div class="content">
                   {{ range .Site.Taxonomies.categories.ByCount }}
                   <div class="container" style="margin-bottom: 0.5rem">
-                    <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
+                    <a href="{{ "/categories/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
                     <span class="tag is-pulled-right">
                       {{ .Count }}
                     </span>
@@ -74,7 +74,7 @@
                   {{ range .Site.Taxonomies.tags.ByCount }}
                   <div class="control">
                     <div class="tags has-addons">
-                      <a class="tag" href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
+                      <a class="tag" href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
                       <span class="tag counter-tag">
                         {{ .Count }}
                       </span>

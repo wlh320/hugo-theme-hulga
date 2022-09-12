@@ -15,7 +15,7 @@
         {{ with .Params.Categories }} ・
           {{ range .}}
             <span class="post-tag post-meta">
-              <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
             </span>
           {{ end }}
         {{ end }}
@@ -28,7 +28,7 @@
       <div class="tagbox post-meta">
         {{ range . }}
         <span class="post-tag">
-          <a href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
         </span>
         {{ end }}
       </div>

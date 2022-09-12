@@ -33,7 +33,7 @@
                   {{ with .Params.Categories }} ・
                   {{ range .}}
                   <span class="post-tag post-box-category">
-                    <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+                    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
                   </span>
                   {{ end }}
                   {{ end }}
@@ -42,7 +42,7 @@
                 <div class="post-box-tags">
                   {{ range .}}
                   <span class="post-tag post-box-tag">
-                    <a href="{{ $ctx.Site.BaseURL }}{{ "/tags/" | relLangURL }}{{ . | urlize }}/">#{{ . }}</a>
+                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">#{{ . }}</a>
                   </span>
                   {{ end }}
                 </div>

@@ -17,7 +17,7 @@
               {{- $ctx := . -}}
               {{ range .Site.Taxonomies.categories.ByCount }}
               <div class="container" style="margin-bottom: 0.5rem">
-                <a href="{{ $ctx.Site.BaseURL }}{{ "/categories/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
+                <a href="{{ "/categories/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
                 <span class="tag is-medium is-pulled-right">
                   {{ .Count }}
                 </span>
@@ -42,7 +42,7 @@
               {{ range .Site.Taxonomies.tags.ByCount }}
               <div class="control">
                 <div class="tags has-addons">
-                  <a class="tag is-medium" href="{{$ctx.Site.BaseURL}}{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
+                  <a class="tag is-medium" href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
                   <span class="tag is-medium is-primary">
                     {{ .Count }}
                   </span>
