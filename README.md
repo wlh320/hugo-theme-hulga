@@ -79,6 +79,9 @@ theme = "hulga"
   # enable postcss, mainly for css purge (129kB->20kB->4.8kB gzipped, but this makes build slower)
   postcss = true
 
+  # enable showing content summary below post title in home page, default false
+  showSummary = true
+
   # enable toc on every post page
   toc = true
 
