@@ -92,7 +92,10 @@ theme = "hulga"
   darkMedia = true
 
   # enable hero section's is-bold effect
-  heroBold = true
+  heroBold = false
+
+  # enable hero section that looks like steam deck's home page
+  heroSteamDeck = false
 
   # enable PWA, prepare your icons and DON'T forget to modify manifest.json
   pwa = true

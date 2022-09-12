@@ -1,0 +1,32 @@
+.hero.is-primary {
+  animation: bg-color 20s infinite !important;
+  -webkit-animation: bg-color 20s infinite !important;
+}
+@-webkit-keyframes bg-color {
+  0% { background-color: #1a75ff; }
+  10% { background-color: #6a5df8; }
+  20% { background-color: #c957e6; }
+  30% { background-color: #d2486b; }
+  40% { background-color: #bf44ac; }
+  50% { background-color: #ab47d0; }
+  60% { background-color: #9460f3; }
+  70% { background-color: #46aced; }
+  80% { background-color: #4ec3a3; }
+  90% { background-color: #b8ba05; }
+  // 100% { background-color: #d2486b; }
+  100% { background-color: #1a75ff; }
+}
+@keyframes bg-color {
+  0% { background-color: #1a75ff; }
+  10% { background-color: #6a5df8; }
+  20% { background-color: #c957e6; }
+  30% { background-color: #d2486b; }
+  40% { background-color: #bf44ac; }
+  50% { background-color: #ab47d0; }
+  60% { background-color: #9460f3; }
+  70% { background-color: #46aced; }
+  80% { background-color: #4ec3a3; }
+  90% { background-color: #b8ba05; }
+  // 100% { background-color: #d2486b; }
+  100% { background-color: #1a75ff; }
+}

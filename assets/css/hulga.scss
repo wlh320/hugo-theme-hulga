@@ -15,3 +15,8 @@ $primary: {{ .Site.Params.primaryColor }};
 // can define primary color in theme config
 
 @import "./common.scss";
+
+/* hero looks like steam deck */
+{{ if .Site.Params.heroSteamDeck }}
+@import "./steamdeck.scss"
+{{ end }}
