@@ -12,17 +12,27 @@
                 <div class="post-box-title">
                   <a href="{{ .Permalink }}" class="title is-size-5">{{ .Title }}</a>
                 </div>
+                {{ if .Site.Params.showSummary }}
+                  <div class="post-box-summary">
+                    {{ .Summary }}
+                    {{ if .Truncated }}
+                    <span>
+                       <a href="{{ .RelPermalink }}">…Read More</a>
+                    </span>
+                    {{ end }}
+                  </div>
+                {{ end }}
                 <div class="post-box-meta">
                   {{ .Date.Format "2006/01/02" }}
                   {{ with .Params.Categories }} ・
-                  {{ range .}}
-                  <span class="post-tag post-box-category">
-                    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
-                  </span>
-                  {{ end }}
+                    {{ range .}}
+                    <span class="post-tag post-box-category">
+                      <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+                    </span>
+                    {{ end }}
                   {{ end }}
                 </div>
-                {{ with .Params.Tags }}
+               {{ with .Params.Tags }}
                 <div class="post-box-tags">
                   {{ range .}}
                   <span class="post-tag post-box-tag">
