@@ -8,8 +8,8 @@
   <meta name="theme-color" content="{{.Site.Params.primaryColor}}">
   {{- end -}}
   {{- if .IsHome -}}
-  <title>{{ .Site.Title }} | {{ .Site.Params.subtitle }}</title>
-  <meta property="og:title" content="{{ .Site.Title }} | {{ .Site.Params.subtitle }}">
+  <title>{{ .Site.Title }} {{- if .Site.Params.subtitle }} | {{ .Site.Params.subtitle }} {{- end -}}</title>
+  <meta property="og:title" content="{{ .Site.Title }} {{- if .Site.Params.subtitle }} | {{ .Site.Params.subtitle }} {{- end -}}">
   <meta property="og:type" content="website">
   {{ if .Site.Params.keywords }}
   <meta name="keywords" content="{{.Site.Params.keywords}}">

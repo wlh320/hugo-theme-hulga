@@ -1,5 +1,5 @@
 {{ partial "post-header.html" . }}
-{{- $setToc := or .Params.toc .Site.Params.toc -}}
+{{- $setToc := or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) -}}
 {{- $headers := findRE "<h[1-3].*?>(.|\n])+?</h[1-3]>" .Content -}}
 {{- $hasToc := ge (len $headers) 1 -}}
 {{- $showToc := and $setToc $hasToc -}}

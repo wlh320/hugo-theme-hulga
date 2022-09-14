@@ -73,31 +73,34 @@ theme = "hulga"
   # copyright text on footer
   copyright = "Copyright © 2020 wlh. All rights reserved."
 
-  # enable katex rendering on every post page
-  math = true
+  # enable katex rendering on every post page, default false
+  math = false
 
-  # enable postcss, mainly for css purge (129kB->20kB->4.8kB gzipped, but this makes build slower)
+  # enable postcss, mainly for css purge (129kB->20kB->4.8kB gzipped, but this makes build slower), default false
   postcss = true
 
   # enable showing content summary below post title in home page, default false
   showSummary = true
 
-  # enable toc on every post page
+  # set paginate on taxonomy term page (tags or categories), default 10
+  termPaginate = 3
+
+  # enable toc on every post page, default false
   toc = true
 
-  # enable TOC auto collapse
+  # enable TOC auto collapse, default false
   autoCollapseToc = true
 
-  # enable prefers-color-scheme:dark
+  # enable prefers-color-scheme:dark, default false
   darkMedia = true
 
-  # enable hero section's is-bold effect
+  # enable hero section's is-bold effect, default false
   heroBold = false
 
-  # enable hero section that looks like steam deck's home page
+  # enable hero section that looks like steam deck's home page, default false
   heroSteamDeck = false
 
-  # enable PWA, prepare your icons and DON'T forget to modify manifest.json
+  # enable PWA, prepare your icons and DON'T forget to modify manifest.json, default false
   pwa = true
 
   # disable jsdelivr cdn, default false

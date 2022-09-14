@@ -22,7 +22,7 @@
         </nav>
         {{ end }}
         <div class="post-lists">
-          {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+          {{ $paginator := .Paginate (where .Data.Pages "Type" "post") (.Site.Params.termPaginate | default 10) }}
           {{ range $paginator.Pages }}
               <div class="box post-box">
                 <div class="post-box-title">
