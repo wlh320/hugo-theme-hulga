@@ -23,7 +23,7 @@ build hugo site with configs
   - category list&term pages
   - tag list&term pages
   - archives pages
-- TOC sidebar
+- table of contents (TOC) sidebar
 - `prefers-color-scheme` media support
 - PWA support
 
@@ -45,6 +45,9 @@ build hugo site with configs
 3. to use `postcss`, you should have hugo extended version installed, then copy `package.json` and `postcss.config.js` to the root of your site folder, then `npm install`
 
 4. If your language is not `en` or `zh-cn`, you may need to add i18n files in i18n folder to show some i18n strings in this theme.
+
+5. Ensure the to put all content in a directory titled "post" for the theme to populate the articles. Ex. content\post
+    
 
 ## Config
 
@@ -127,6 +130,16 @@ theme = "hulga"
     name = "关于"
     url = "/about/"
     weight = 3
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 4
+  [[menu.main]]
+    identifier = "categories"
+    name = "类别"
+    url = "/categories/"
+    weight = 5
 
 [taxonomies]
 category = "categories"
