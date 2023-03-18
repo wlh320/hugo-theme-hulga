@@ -10,7 +10,7 @@
               {{ range $paginator.Pages }}
               <div class="box post-box">
                 <div class="post-box-title">
-                  <a href="{{ .Permalink }}" class="title is-size-5">{{ .Title }}</a>
+                  <a href="{{ .RelPermalink }}" class="title is-size-5">{{ .Title }}</a>
                 </div>
                 {{ if .Site.Params.showSummary }}
                   <div class="post-box-summary">

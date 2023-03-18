@@ -26,7 +26,7 @@
           {{ range $paginator.Pages }}
               <div class="box post-box">
                 <div class="post-box-title">
-                  <a href="{{.Permalink }}" class="title is-size-5">{{ .Title }}</a>
+                  <a href="{{ .RelPermalink }}" class="title is-size-5">{{ .Title }}</a>
                 </div>
                 <div class="post-box-meta">
                   {{ .Date.Format "2006/01/02" }}
