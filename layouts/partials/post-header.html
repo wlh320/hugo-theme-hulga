@@ -12,23 +12,23 @@
         <time class="post-meta">{{ .Date.Format "2006/01/02" }}</time>
         {{- end -}}
         {{- $ctx := . -}}
-        {{ with .Params.Categories }} ・
-          {{ range .}}
+        {{ with (.GetTerms "categories") }} ・
+          {{- range . -}}
             <span class="post-tag post-meta">
-              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             </span>
-          {{ end }}
+          {{- end -}}
         {{ end }}
         {{- if eq .Type "archives" -}}
         {{- $count := len (where (where .Site.Pages "Type" "post") "Kind" "page") -}}
         {{ i18n "archives_count" (dict "Count" $count) }}
         {{- end -}}
       </h2>
-      {{ with .Params.tags }}
+      {{ with (.GetTerms "tags") }}
       <div class="tagbox post-meta">
         {{ range . }}
         <span class="post-tag">
-          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+          <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
         </span>
         {{ end }}
       </div>

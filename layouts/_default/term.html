@@ -9,14 +9,14 @@
         {{ if eq .Data.Singular "category" }}
         <nav class="breadcrumb is-centered is-medium" aria-label="breadcrumbs">
           <ul>
-            <li><a href={{"categories" | absURL}}>{{- i18n "categories" -}}</a></li>
+            <li><a href={{"categories" | relURL}}>{{- i18n "categories" -}}</a></li>
             <li class="is-active"><a href="#">{{ .Data.Term }}</a></li>
           </ul>
         </nav>
         {{ else if eq .Data.Singular "tag" }}
         <nav class="breadcrumb is-centered is-medium" aria-label="breadcrumbs">
           <ul>
-            <li><a href="{{"tags" | absURL }}">{{- i18n "tags" -}}</a></li>
+            <li><a href="{{"tags" | relURL}}">{{- i18n "tags" -}}</a></li>
             <li class="is-active"><a href="#">{{ .Data.Term }}</a></li>
           </ul>
         </nav>
@@ -30,20 +30,20 @@
                 </div>
                 <div class="post-box-meta">
                   {{ .Date.Format "2006/01/02" }}
-                  {{ with .Params.Categories }} ・
-                  {{ range .}}
-                  <span class="post-tag post-box-category">
-                    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
-                  </span>
-                  {{ end }}
+                  {{ with (.GetTerms "categories") }} ・
+                    {{ range . }}
+                      <span class="post-tag post-box-category">
+                        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                      </span>
+                    {{ end }}
                   {{ end }}
                 </div>
-                {{ with .Params.Tags }}
+                {{ with (.GetTerms "tags") }}
                 <div class="post-box-tags">
-                  {{ range .}}
-                  <span class="post-tag post-box-tag">
-                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">#{{ . }}</a>
-                  </span>
+                  {{ range . }}
+                    <span class="post-tag post-box-tag">
+                      <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+                    </span>
                   {{ end }}
                 </div>
                 {{ end }}

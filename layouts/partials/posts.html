@@ -24,19 +24,19 @@
                 {{ end }}
                 <div class="post-box-meta">
                   {{ .Date.Format "2006/01/02" }}
-                  {{ with .Params.Categories }} ・
+                  {{ with (.GetTerms "categories") }} ・
                     {{ range .}}
                     <span class="post-tag post-box-category">
-                      <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+                      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                     </span>
                     {{ end }}
                   {{ end }}
                 </div>
-               {{ with .Params.Tags }}
+                {{ with (.GetTerms "tags") }}
                 <div class="post-box-tags">
                   {{ range .}}
                   <span class="post-tag post-box-tag">
-                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize}}/">#{{ . }}</a>
+                    <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
                   </span>
                   {{ end }}
                 </div>
@@ -60,7 +60,7 @@
                 <div class="content">
                   {{ range .Site.Taxonomies.categories.ByCount }}
                   <div class="container" style="margin-bottom: 0.5rem">
-                    <a href="{{ "/categories/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
+                    <a href="{{ .Page.RelPermalink }}/">{{ .Page.Title }}</a>
                     <span class="tag is-pulled-right">
                       {{ .Count }}
                     </span>
@@ -84,7 +84,7 @@
                   {{ range .Site.Taxonomies.tags.ByCount }}
                   <div class="control">
                     <div class="tags has-addons">
-                      <a class="tag" href="{{ "/tags/" | relLangURL }}{{ .Name | urlize }}/">{{ .Name }}</a>
+                      <a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
                       <span class="tag counter-tag">
                         {{ .Count }}
                       </span>
