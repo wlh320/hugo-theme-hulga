@@ -60,7 +60,7 @@
                 <div class="content">
                   {{ range .Site.Taxonomies.categories.ByCount }}
                   <div class="container" style="margin-bottom: 0.5rem">
-                    <a href="{{ .Page.RelPermalink }}/">{{ .Page.Title }}</a>
+                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
                     <span class="tag is-pulled-right">
                       {{ .Count }}
                     </span>
