@@ -30,8 +30,8 @@
   <meta name="keywords" content="{{ if .Keywords }}{{ .Keywords }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
   <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}">
   {{- end -}}
-  {{ if .Site.Params.author -}}
-  <meta name="author" content="{{ .Params.author }}">
+  {{ if or .Params.author site.Params.author -}}
+  <meta name="author" content="{{ (partial "author.html" . ) }}">
   {{- end }}
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

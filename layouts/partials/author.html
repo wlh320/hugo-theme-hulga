@@ -1,0 +1,11 @@
+{{- if or .Params.author site.Params.author }}
+{{- $author := (.Params.author | default site.Params.author) }}
+{{- $author_type := (printf "%T" $author) }}
+{{- if eq $author_type "[]string" }}
+{{- (delimit $author ", " ) }}
+{{- else if (eq $author_type "maps.Params")}}
+{{- $author.name }}
+{{- else }}
+{{- $author }}
+{{- end }}
+{{- end -}}
