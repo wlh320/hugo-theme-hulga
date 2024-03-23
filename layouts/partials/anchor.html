@@ -1,7 +1,7 @@
 {{- if .Site.Params.noCDN -}}
 <script src={{ "js/anchor.min.js" | absURL }}></script>
 {{- else -}}
-<script src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
 {{- end -}}
 <script>
   anchors.options = {

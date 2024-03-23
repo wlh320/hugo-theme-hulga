@@ -40,18 +40,16 @@
   {{- $lightScss := resources.Get "css/hulga.scss" }}
   {{- $darkScss := resources.Get "css/hulga-dark.scss" }}
   {{- if .Site.Params.postcss }}
+  {{- $bulma := resources.Get "css/bulma.css" | postCSS | resources.Minify }}
   {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
+  <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
   <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
   {{- if .Site.Params.darkMedia }}
-  {{- $dark := $darkScss | resources.ExecuteAsTemplate "css/hulga-dark.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
-  <link rel="stylesheet" type="text/css" href="{{ $dark.Permalink | relURL }}" media="(prefers-color-scheme: dark)">
   {{- end }}
   {{- else }}
   {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
   <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
   {{- if .Site.Params.darkMedia }}
-  {{- $dark := $darkScss | resources.ExecuteAsTemplate "css/hulga-dark.scss" . | resources.ToCSS $options | resources.Minify }}
-  <link rel="stylesheet" type="text/css" href="{{ $dark.Permalink | relURL }}" media="(prefers-color-scheme: dark)">
   {{- end }}
   {{- end }}
   {{- if .Site.Params.pwa }}

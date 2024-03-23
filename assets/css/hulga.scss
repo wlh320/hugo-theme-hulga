@@ -5,16 +5,28 @@
 // @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 // Set your brand colors
-// $archblue: #1793d0;
 
 {{ if .Site.Params.primaryColor }}
-$primary: {{ .Site.Params.primaryColor }};
-{{end}}
+  $primary: {{ .Site.Params.primaryColor }};
+  // FIXME: calculate foreground color as a pro
+  $bg-is-light: lightness($primary) > 50%;
+
+  :root {
+    --bulma-primary: {{ .Site.Params.primaryColor }};
+    --bulma-primary-h: #{hue($primary)};
+    --bulma-primary-s: #{saturation($primary)};
+    --bulma-primary-l: #{lightness($primary)};
+    @if $bg-is-light {
+      --bulma-primary-invert-l: var(--bulma-primary-05-l);
+    } @else {
+      --bulma-primary-invert-l: var(--bulma-primary-100-l);
+    }
+  }
+{{ end }}
 
 // Update Bulma's global variables
-// can define primary color in theme config
-
 @import "./common.scss";
+
 
 /* hero looks like steam deck */
 {{ if .Site.Params.heroSteamDeck }}
