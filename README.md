@@ -18,6 +18,7 @@ build hugo site with configs
 
 ## Features
 
+- based on Bulma v1
 - small & fast
 - basic functions:
   - category list&term pages
@@ -79,7 +80,7 @@ theme = "hulga"
   # enable katex rendering on every post page, default false
   math = false
 
-  # enable postcss, mainly for css purge (129kB->20kB->4.8kB gzipped, but this makes build slower), default false
+  # enable postcss, mainly for css purge (713kB->170kB->22kB gzipped, but this makes build slower), default false
   postcss = true
 
   # enable showing content summary below post title in home page, default false
