@@ -47,7 +47,9 @@
   {{- if .Site.Params.darkMedia }}
   {{- end }}
   {{- else }}
+  {{- $bulma := resources.Get "css/bulma.css" | resources.Minify }}
   {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
+  <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
   <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
   {{- if .Site.Params.darkMedia }}
   {{- end }}

@@ -10,28 +10,14 @@
               {{ range $paginator.Pages }}
               <div class="box post-box">
                 <div class="post-box-title">
-                  <a href="{{ .RelPermalink }}" class="title is-size-5">{{ .Title }}</a>
+                    <a href="{{ .RelPermalink }}" class="title is-5">{{ .Title }}</a>
                 </div>
+                <!-- </div> -->
                 {{ if .Site.Params.showSummary }}
                   <div class="post-box-summary">
                     {{ .Summary }}
-                    {{ if .Truncated }}
-                    <span>
-                       <a href="{{ .RelPermalink }}">…Read More</a>
-                    </span>
-                    {{ end }}
                   </div>
                 {{ end }}
-                <div class="post-box-meta">
-                  {{ .Date.Format "2006/01/02" }}
-                  {{ with (.GetTerms "categories") }} ・
-                    {{ range .}}
-                    <span class="post-tag post-box-category">
-                      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-                    </span>
-                    {{ end }}
-                  {{ end }}
-                </div>
                 {{ with (.GetTerms "tags") }}
                 <div class="post-box-tags">
                   {{ range .}}
@@ -41,6 +27,23 @@
                   {{ end }}
                 </div>
                 {{ end }}
+                <div class="post-box-meta">
+                  <div class="post-box-time">
+                    {{ .Date.Format "2006/01/02" }}
+                    {{ with (.GetTerms "categories") }} ・
+                      {{ range .}}
+                      <span class="post-tag post-box-category">
+                        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                      </span>
+                      {{ end }}
+                    {{ end }}
+                  </div>
+                  {{ if .Truncated }}
+                  <span class="readmore level-right">
+                    <a href="{{ .RelPermalink }}">{{ i18n "read_more" }}</a>
+                  </span>
+                  {{ end }}
+                </div>
               </div>
               {{ end }}
             </div>

@@ -27,7 +27,6 @@
 // Update Bulma's global variables
 @import "./common.scss";
 
-
 /* hero looks like steam deck */
 {{ if .Site.Params.heroSteamDeck }}
 @import "./steamdeck.scss"
