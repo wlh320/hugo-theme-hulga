@@ -26,6 +26,7 @@ build hugo site with configs
   - archives pages
 - table of contents (TOC) sidebar
 - `prefers-color-scheme` media support
+- force light/dark mode
 - PWA support
 
 ## Install
@@ -98,6 +99,9 @@ theme = "hulga"
   # enable prefers-color-scheme:dark, default false
   darkMedia = true
 
+  # enable user to toggle dark mode with a menu, default false
+  darkToggle = true
+
   # enable hero section's is-bold effect, default false
   heroBold = false
 
@@ -109,6 +113,11 @@ theme = "hulga"
 
   # disable jsdelivr cdn, default false
   noCDN = false
+
+# for postcss-purgecss
+# see https://purgecss.com/guides/hugo.html
+[build]
+  writeStats = true
 
 # to enable different hightlight themes in light/dark mode 
 [markup]

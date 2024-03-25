@@ -12,11 +12,10 @@
                 <div class="post-box-title">
                     <a href="{{ .RelPermalink }}" class="title is-5">{{ .Title }}</a>
                 </div>
-                <!-- </div> -->
                 {{ if .Site.Params.showSummary }}
-                  <div class="post-box-summary">
-                    {{ .Summary }}
-                  </div>
+                <div class="post-box-summary">
+                  {{ .Summary }}
+                </div>
                 {{ end }}
                 {{ with (.GetTerms "tags") }}
                 <div class="post-box-tags">
@@ -32,16 +31,16 @@
                     {{ .Date.Format "2006/01/02" }}
                     {{ with (.GetTerms "categories") }} ・
                       {{ range .}}
-                      <span class="post-tag post-box-category">
+                      <span class="post-tag">
                         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                       </span>
                       {{ end }}
                     {{ end }}
                   </div>
                   {{ if .Truncated }}
-                  <span class="readmore level-right">
+                  <div class="readmore">
                     <a href="{{ .RelPermalink }}">{{ i18n "read_more" }}</a>
-                  </span>
+                  </div>
                   {{ end }}
                 </div>
               </div>

@@ -8,6 +8,9 @@
 a {
   color: var(--bulma-primary);
 }
+a:hover {
+  text-decoration: underline;
+}
 #back-to-top {
   background: var(--bulma-primary);
 }
@@ -39,14 +42,11 @@ body {
 #toc {
   padding-left: 2rem;
 }
-.fake-text {
-  color: transparent !important;
-  pointer-events: none;
-}
+
+/* hero */
 .shadow-hero {
   box-shadow: 0 0 1.2rem 0 rgba(0, 0, 0, 0.25);
   position: relative;
-  // z-index: 1;
 }
 
 /*syntax highlight label*/
@@ -72,12 +72,6 @@ body {
 .post-tag a {
   color: currentColor;
 }
-.post-tag a:hover {
-  text-decoration: underline;
-}
-.tag a {
-  color: currentColor;
-}
 
 /* posts */
 .post-box-title {
@@ -97,7 +91,4 @@ body {
 }
 .post-box-time {
   opacity: 0.8;
-}
-.readmore a:hover {
-  text-decoration: underline;
 }

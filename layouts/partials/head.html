@@ -1,4 +1,7 @@
 <head>
+  {{- if .Site.Params.darkToggle -}}
+  <script> if (localStorage.getItem('bulma-theme') === 'dark') { document.documentElement.setAttribute('data-theme', 'dark');} </script>
+  {{- end -}}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,23 +39,22 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
-  {{- $options := (dict "outputStyle" "compressed" "includePaths" (slice "sass")) }}
+  {{- $options := (dict "outputStyle" "compressed") }}
   {{- $lightScss := resources.Get "css/hulga.scss" }}
-  {{- $darkScss := resources.Get "css/hulga-dark.scss" }}
+  {{- $bulmaCss := resources.Get "css/bulma-no-dark-mode.min.css" }}
+  {{- if .Site.Params.darkMedia }}
+    {{- $bulmaCss = resources.Get "css/bulma.css" }}
+  {{- end }}
   {{- if .Site.Params.postcss }}
-  {{- $bulma := resources.Get "css/bulma.css" | postCSS | resources.Minify }}
-  {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
-  <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
-  <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
-  {{- if .Site.Params.darkMedia }}
-  {{- end }}
+    {{- $bulma := $bulmaCss | postCSS | resources.Minify }}
+    {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
+    <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
   {{- else }}
-  {{- $bulma := resources.Get "css/bulma.css" | resources.Minify }}
-  {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
-  <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
-  <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
-  {{- if .Site.Params.darkMedia }}
-  {{- end }}
+    {{- $bulma := $bulmaCss | resources.Minify }}
+    {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
+    <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
   {{- end }}
   {{- if .Site.Params.pwa }}
   <link rel="manifest" href="/manifest.json">

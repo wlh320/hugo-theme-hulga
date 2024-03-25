@@ -21,3 +21,12 @@ other = "Page not found, please check the URL"
 
 [read_more]
 other = "Read More"
+
+[light-mode]
+other = "Light"
+
+[dark-mode]
+other = "Dark"
+
+[system-mode]
+other = "System"

@@ -20,4 +20,13 @@ other = "归档"
 other = "页面未找到，请检查 URL "
 
 [read_more]
-other = "继续阅读"
+other = "阅读全文"
+
+[light-mode]
+other = "浅色"
+
+[dark-mode]
+other = "深色"
+
+[system-mode]
+other = "跟随系统"
