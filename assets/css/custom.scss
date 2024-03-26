@@ -1,0 +1,94 @@
+/* override bulma */
+
+/* force primary color */
+.pagination-link.is-current {
+  background-color: var(--bulma-primary);
+  border-color: var(--bulma-primary);
+}
+a {
+  color: var(--bulma-primary);
+}
+a:hover {
+  text-decoration: underline;
+}
+#back-to-top {
+  background: var(--bulma-primary);
+}
+
+/* fixed footer */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+#main {
+  flex: 1;
+}
+.footer {
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* anchor animation */
+*:hover > .anchorjs-link {
+  transition: color .25s linear;
+}
+
+/* article content wrapper */
+.sidebar {
+  height: 100%;
+}
+#toc {
+  padding-left: 2rem;
+}
+
+/* hero */
+.shadow-hero {
+  box-shadow: 0 0 1.2rem 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/*syntax highlight label*/
+.highlight {
+  position: relative;
+}
+.highlight:not(:last-child) {
+  margin-bottom: 1em;
+}
+.chroma code:before {
+  content: attr(data-lang);
+  position: absolute;
+  right: 0.5rem;
+  top: 0rem;
+  opacity: 0.5;
+  font-weight: 700;
+}
+
+/*category and tags*/
+.post-tag {
+  margin-right: 0.5em;
+}
+.post-tag a {
+  color: currentColor;
+}
+
+/* posts */
+.post-box-title {
+  margin-bottom: 0.5rem;
+}
+.post-box-summary {
+  margin-bottom: 0.5rem;
+}
+.post-box-tag {
+  color: var(--bulma-primary);
+  font-size: 0.9em;
+}
+.post-box-meta {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+}
+.post-box-time {
+  opacity: 0.8;
+}

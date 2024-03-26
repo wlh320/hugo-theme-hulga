@@ -1,22 +1,30 @@
 // bulma customize
 @charset "utf-8";
 
-// Import a Google Font
-// @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-
+@import "./functions";
 // Set your brand colors
-// $archblue: #1793d0;
-
 {{ if .Site.Params.primaryColor }}
-$primary: {{ .Site.Params.primaryColor }};
-{{end}}
+  $primary: {{ .Site.Params.primaryColor }};
+  $bg-is-light: luminance($primary) > 0.55;
 
-// Update Bulma's global variables
-// can define primary color in theme config
+  :root {
+    --bulma-primary: {{ .Site.Params.primaryColor }};
+    --bulma-primary-h: #{hue($primary)};
+    --bulma-primary-s: #{saturation($primary)};
+    --bulma-primary-l: #{lightness($primary)};
 
-@import "./common.scss";
+    @if $bg-is-light {
+      --bulma-primary-invert-l: var(--bulma-primary-05-l);
+    } @else {
+      --bulma-primary-invert-l: var(--bulma-primary-100-l);
+    }
+  }
+{{ end }}
+
+// custom css
+@import "./custom";
 
 /* hero looks like steam deck */
 {{ if .Site.Params.heroSteamDeck }}
-@import "./steamdeck.scss"
+@import "./steamdeck"
 {{ end }}

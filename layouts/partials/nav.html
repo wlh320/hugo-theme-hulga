@@ -1,22 +1,27 @@
 <nav class="navbar is-primary">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item {{if ne .Kind "page"}}fake-text{{end}}" href="/">
+      <a class="navbar-item {{if ne .Kind "page"}}is-invisible{{end}}" href="/">
         {{ .Site.Title }}
       </a>
       <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </a>
     </div>
-    <div class="navbar-menu" id="navMenu">
-      <div class="navbar-end">
-        {{ range .Site.Menus.main.ByWeight -}}
-        {{ .Pre }}
+    <div class="navbar-end">
+      <div class="navbar-menu" id="navMenu">
+      {{- if .Site.Params.darkToggle -}}
+      {{- partial "dark.html" -}}
+      {{- end -}}
+ 
+      {{ range .Site.Menus.main.ByWeight -}}
+      {{ .Pre }}
         <a class="navbar-item" href="{{ .URL }}" title="{{ .Identifier }}">{{- .Name -}}</a>
-        {{ .Post }}
-        {{- end }}
+      {{ .Post }}
+      {{- end }}
       </div>
     </div>
   </div>

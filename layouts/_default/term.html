@@ -24,11 +24,12 @@
         <div class="post-lists">
           {{ $paginator := .Paginate (where .Data.Pages "Type" "post") (.Site.Params.termPaginate | default 10) }}
           {{ range $paginator.Pages }}
-              <div class="box post-box">
-                <div class="post-box-title">
-                  <a href="{{ .RelPermalink }}" class="title is-size-5">{{ .Title }}</a>
-                </div>
-                <div class="post-box-meta">
+            <div class="box post-box">
+              <div class="post-box-title">
+                <a href="{{ .RelPermalink }}" class="title is-size-5">{{ .Title }}</a>
+              </div>
+              <div class="post-box-meta">
+                <div>
                   {{ .Date.Format "2006/01/02" }}
                   {{ with (.GetTerms "categories") }} ・
                     {{ range . }}
@@ -38,16 +39,17 @@
                     {{ end }}
                   {{ end }}
                 </div>
-                {{ with (.GetTerms "tags") }}
-                <div class="post-box-tags">
-                  {{ range . }}
-                    <span class="post-tag post-box-tag">
-                      <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
-                    </span>
-                  {{ end }}
-                </div>
+              </div>
+              {{ with (.GetTerms "tags") }}
+              <div class="post-box-tags">
+                {{ range . }}
+                  <span class="post-tag post-box-tag">
+                    <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+                  </span>
                 {{ end }}
               </div>
+              {{ end }}
+            </div>
           {{ end }}
           {{ partial "paginator.html" . }}
         </div>

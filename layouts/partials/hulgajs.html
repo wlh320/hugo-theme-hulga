@@ -1,0 +1,3 @@
+{{ $jsfile := resources.Get "js/hulga.js" }}
+{{ $js := $jsfile | resources.ExecuteAsTemplate "js/hulga.js" . |  resources.Minify }}
+<script src="{{ $js.Permalink | absURL }}" defer></script>

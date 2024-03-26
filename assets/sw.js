@@ -1,9 +1,9 @@
 const CACHE_VERSION = 1;
 
 const BASE_CACHE_FILES = [
+  '/css/bulma.min.css',
   '/css/hulga.min.css',
   '/css/toc.min.css',
-  '/css/hulga-dark.min.css',
   '/css/katex.min.css',
   '/css/monokai.css',
   '/css/monokailight.css',
@@ -12,6 +12,7 @@ const BASE_CACHE_FILES = [
   '/js/auto-render.min.js',
   '/js/katex.min.js',
   '/js/vanilla-back-to-top.min.js',
+  '/js/hulga.min.js',
   '/manifest.json',
   '/favicon.ico',
 ];
