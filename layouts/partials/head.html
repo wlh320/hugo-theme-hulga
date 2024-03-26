@@ -1,6 +1,6 @@
 <head>
   {{- if .Site.Params.darkToggle -}}
-  <script> if (localStorage.getItem('bulma-theme') === 'dark') { document.documentElement.setAttribute('data-theme', 'dark');} </script>
+  <script>const t=localStorage.getItem('bulma-theme'); if (t !== null) { document.documentElement.setAttribute('data-theme', t);} </script>
   {{- end -}}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,21 +40,21 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
   {{- $options := (dict "outputStyle" "compressed") }}
-  {{- $lightScss := resources.Get "css/hulga.scss" }}
+  {{- $hulgaScss := resources.Get "css/hulga.scss" }}
   {{- $bulmaCss := resources.Get "css/bulma-no-dark-mode.min.css" }}
   {{- if .Site.Params.darkMedia }}
     {{- $bulmaCss = resources.Get "css/bulma.css" }}
   {{- end }}
   {{- if .Site.Params.postcss }}
     {{- $bulma := $bulmaCss | postCSS | resources.Minify }}
-    {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
+    {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
     <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
-    <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ $hulga.Permalink | relURL }}">
   {{- else }}
     {{- $bulma := $bulmaCss | resources.Minify }}
-    {{- $light := $lightScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
+    {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
     <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
-    <link rel="stylesheet" type="text/css" href="{{ $light.Permalink | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ $hulga.Permalink | relURL }}">
   {{- end }}
   {{- if .Site.Params.pwa }}
   <link rel="manifest" href="/manifest.json">

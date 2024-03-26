@@ -1,21 +1,18 @@
 // bulma customize
 @charset "utf-8";
 
-// Import a Google Font
-// @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-
+@import "./functions";
 // Set your brand colors
-
 {{ if .Site.Params.primaryColor }}
   $primary: {{ .Site.Params.primaryColor }};
-  // FIXME: calculate foreground color as a pro
-  $bg-is-light: lightness($primary) > 50%;
+  $bg-is-light: luminance($primary) > 0.55;
 
   :root {
     --bulma-primary: {{ .Site.Params.primaryColor }};
     --bulma-primary-h: #{hue($primary)};
     --bulma-primary-s: #{saturation($primary)};
     --bulma-primary-l: #{lightness($primary)};
+
     @if $bg-is-light {
       --bulma-primary-invert-l: var(--bulma-primary-05-l);
     } @else {
@@ -24,10 +21,10 @@
   }
 {{ end }}
 
-// Update Bulma's global variables
-@import "./common.scss";
+// custom css
+@import "./custom";
 
 /* hero looks like steam deck */
 {{ if .Site.Params.heroSteamDeck }}
-@import "./steamdeck.scss"
+@import "./steamdeck"
 {{ end }}

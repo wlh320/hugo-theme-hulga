@@ -12,6 +12,7 @@ const BASE_CACHE_FILES = [
   '/js/auto-render.min.js',
   '/js/katex.min.js',
   '/js/vanilla-back-to-top.min.js',
+  '/js/hulga.min.js',
   '/manifest.json',
   '/favicon.ico',
 ];
