@@ -4,20 +4,23 @@ other = "Categories"
 [tags]
 other = "Tags"
 
+[search]
+other = "Search"
+
+[archives]
+other = "Archives"
+
+[archives_count]
+other = "There are {{ .Count }} articles in this blog"
+
+[404-info]
+other = "Page not found, please check the URL"
+
 [prev_page]
 other = "Previous"
 
 [next_page]
 other = "Next"
-
-[archives_count]
-other = "There are {{ .Count }} articles in this blog"
-
-[archives]
-other = "Archives"
-
-[404-info]
-other = "Page not found, please check the URL"
 
 [read_more]
 other = "Read More"

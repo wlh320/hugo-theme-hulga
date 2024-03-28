@@ -12,7 +12,7 @@
       {{ else }}
       <div class="column is-three-fifths is-offset-one-fifth">
       {{ end }}
-        <article class="content" id="post-content">
+        <article class="content" id="post-content" {{ if not .Site.Params.noPagefind -}}data-pagefind-body{{- end -}}>
           {{- .Content -}}
         </article>
       </div>

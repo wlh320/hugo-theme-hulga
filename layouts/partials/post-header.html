@@ -3,7 +3,7 @@
     {{ partial "nav.html" . }}
   </div>
   <div class="hero-body">
-    <header class="container has-text-centered">
+    <header class="container has-text-centered" {{ if not .Site.Params.noPagefind -}}data-pagefind-body{{- end -}}>
       <h1 class="title post-title is-spaced">
         {{ .Title }}
       </h1>
