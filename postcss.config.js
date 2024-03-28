@@ -6,20 +6,22 @@ module.exports = {
                 const els = JSON.parse(content).htmlElements;
                 return [...(els.tags || []), ...(els.classes || []), ...(els.ids || [])];
             },
+            variables: true,
             safelist: {
                 standard: [
+                    'disabled',
                     'back-to-top',
-                    'data-theme'
+                    'data-theme',
                 ],
                 deep: [/^content/, /^chroma/],
                 greedy: [],
                 keyframes: [],
-                variables: []
+                variables: [/control/, /pagination/, /family/, /text/, /link/, /selected/, /primary/]
             }
         },
         autoprefixer: {},
         cssnano: {
             preset: 'default'
-        }
+        },
     }
 };
