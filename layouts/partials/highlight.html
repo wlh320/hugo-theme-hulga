@@ -1,2 +1,2 @@
-{{- $hlCss := resources.Get "css/monokai.css" | postCSS | resources.Minify }}
+{{- $hlCss := resources.Get "css/monokai.css" | resources.Minify }}
 <link id="hlcss" rel="stylesheet" href="{{$hlCss.Permalink | relURL}}" type="text/css">

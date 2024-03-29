@@ -24,6 +24,21 @@
 // custom css
 @import "./custom";
 
+
+/* force primary color */
+{{ if (default true .Site.Params.primaryEverywhere) }}
+.pagination-link.is-current {
+  background-color: var(--bulma-primary);
+  border-color: var(--bulma-primary);
+}
+a {
+  color: var(--bulma-primary);
+}
+.post-box-tag {
+  color: var(--bulma-primary);
+}
+{{ end }}
+
 /* hero looks like steam deck */
 {{ if .Site.Params.heroSteamDeck }}
 @import "./steamdeck"

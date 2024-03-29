@@ -10,48 +10,53 @@ build `hugoBasicExample` without any config of this theme
 
 ## Demo
 
-build hugo site with configs
-
 [Demo site](https://v4.zilch40.wang)
 
 [My Blog](https://blog.zilch40.wang)
 
 ## Features
 
-- based on Bulma v1
-- small & fast
-- basic functions:
+- Based on Bulma v1
+- Small & fast
+- Basic functions:
   - category list&term pages
   - tag list&term pages
   - archives pages
-- table of contents (TOC) sidebar
-- `prefers-color-scheme` media support
-- force light/dark mode
+- Table of contents (TOC) sidebar
+- Modern CSS variables based dark mode
+  - `prefers-color-scheme` media support
+  - force light/dark theme
+- Static search with pagefind
 - PWA support
 
 ## Install
 
-1. clone to hugo site themes folder
+1. Clone to hugo site themes folder
 
     ```bash
     git submodule add https://github.com/wlh320/hugo-theme-hulga.git themes/hulga
     ```
 
-2. enable it in `config.toml`
+2. Enable it in `config.toml`
 
     ```
     theme = "hulga"
     ```
     and then config it.
 
-3. to use `postcss`, you should have hugo extended version installed, then copy `package.json` and `postcss.config.js` to the root of your site folder, then `npm install`
+3. To use `postcss`, you should have hugo extended version installed, 
+then copy `package.json` and `postcss.config.js` to the root of your site folder, then `npm install`.
 
-4. If your language is not `en` or `zh-cn`, you may need to add i18n files in i18n folder to show some i18n strings in this theme.
+4. If your language is not `en` or `zh-cn`, you may need to add i18n files in i18n folder
+to show some i18n strings in this theme.
 
-5. Ensure the to put all content in a directory titled "post" for the theme to populate the articles. Ex. content\post
+5. Ensure the to put all content in a directory titled "post" for 
+the theme to populate the articles. Ex. content\post
     
 
 ## Config
+
+You can check the config of the demo page in `hugo.toml`
 
 An example of avaliable params:
 
@@ -72,6 +77,9 @@ theme = "hulga"
   # change bulma's primary color
   primaryColor = "#1793d0"
 
+  # use primary color everywhere, default true
+  primaryEverywhere = false
+
   # subtitle on homepage
   subtitle = "This is a subtitle"
 
@@ -81,7 +89,7 @@ theme = "hulga"
   # enable katex rendering on every post page, default false
   math = false
 
-  # enable postcss, mainly for css purge (713kB->170kB->22kB gzipped, but this makes build slower), default false
+  # enable postcss, mainly for css purge (713kB->155kB->22kB gzipped, but this makes build slower), default false
   postcss = true
 
   # enable showing content summary below post title in home page, default false
@@ -157,16 +165,13 @@ tag = "tags"
 
 ```
 
-## Acknowledgement
+## Acknowledgements
 
-本项目的诞生离不开以下开源项目：
-
-- [hugo](https://gohugo.io/) 静态页面生成
-- [bulma](https://bulma.io/) CSS框架
-- [bulmaswatch](https://jenil.github.io/bulmaswatch/) 借用了其中的 dark 主题
-- [purgecss](https://purgecss.com/) [cssnano](https://cssnano.co/) 缩减CSS文件大小
-- [katex](https://katex.org/) $\LaTeX$ 公式渲染
-- [anchorjs](https://github.com/bryanbraun/anchorjs) 添加锚链
-- [tocbot](https://tscanlin.github.io/tocbot/) 生成目录
-- [vanilla-back-to-top](https://github.com/vfeskov/vanilla-back-to-top) 回到顶部 (好懒，这都不自己写)
+- [Hugo](https://gohugo.io/) Static site generator
+- [Bulma](https://bulma.io/) CSS framework
+- [Purgecss](https://purgecss.com/) [cssnano](https://cssnano.co/) Purge CSS size
+- [Katex](https://katex.org/) $\LaTeX$ rendering
+- [anchorjs](https://github.com/bryanbraun/anchorjs) add anchor to title
+- [tocbot](https://tscanlin.github.io/tocbot/) generate table of contents
+- [vanilla-back-to-top](https://github.com/vfeskov/vanilla-back-to-top) back to top
 

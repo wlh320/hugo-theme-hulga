@@ -1,18 +1,6 @@
 /* override bulma */
-
-/* force primary color */
-.pagination-link.is-current {
-  background-color: var(--bulma-primary);
-  border-color: var(--bulma-primary);
-}
-a {
-  color: var(--bulma-primary);
-}
 a:hover {
   text-decoration: underline;
-}
-#back-to-top {
-  background: var(--bulma-primary);
 }
 
 /* fixed footer */
@@ -69,7 +57,7 @@ body {
 .post-tag {
   margin-right: 0.5em;
 }
-.post-tag a {
+header .post-tag a {
   color: currentColor;
 }
 
@@ -81,7 +69,6 @@ body {
   margin-bottom: 0.5rem;
 }
 .post-box-tag {
-  color: var(--bulma-primary);
   font-size: 0.9em;
 }
 .post-box-meta {
@@ -91,4 +78,10 @@ body {
 }
 .post-box-time {
   opacity: 0.8;
+}
+
+/* back to top */
+#back-to-top {
+  background: var(--bulma-primary);
+  color: var(--bulma-primary-invert);
 }
