@@ -12,7 +12,7 @@ paginate = 3
   description = "John Doe's blog"
 
   # change bulma's primary color
-  primaryColor = "#ccfbf1"
+  primaryColor = "#bae6fd"
 
   # use primary color everywhere, default true
   primaryEverywhere = false

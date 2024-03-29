@@ -19,22 +19,22 @@
                 {{ end }}
                 {{ with (.GetTerms "tags") }}
                 <div class="post-box-tags">
-                  {{ range .}}
-                  <span class="post-tag post-box-tag">
+                  {{- range .}}
+                  <span class="post-tag mr-2 post-box-tag">
                     <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
                   </span>
-                  {{ end }}
+                  {{- end }}
                 </div>
                 {{ end }}
                 <div class="post-box-meta">
                   <div class="post-box-time">
                     {{ .Date.Format "2006/01/02" }}
                     {{ with (.GetTerms "categories") }} ・
-                      {{ range .}}
-                      <span class="post-tag">
+                      {{- range .}}
+                      <span class="post-cat mr-2">
                         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                       </span>
-                      {{ end }}
+                      {{- end }}
                     {{ end }}
                   </div>
                   {{ if .Truncated }}
@@ -46,7 +46,7 @@
               </div>
               {{ end }}
             </div>
-            <div style="padding-top: 1.5rem;">
+            <div class="pt-5">
               {{ partial "paginator.html" . }}
             </div>
           </div>
@@ -61,7 +61,7 @@
               <div class="card-content">
                 <div class="content">
                   {{ range .Site.Taxonomies.categories.ByCount }}
-                  <div class="container" style="margin-bottom: 0.5rem">
+                  <div class="container mb-2">
                     <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
                     <span class="tag is-pulled-right">
                       {{ .Count }}

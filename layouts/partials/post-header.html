@@ -14,7 +14,7 @@
         {{- $ctx := . -}}
         {{ with (.GetTerms "categories") }} ・
           {{- range . -}}
-            <span class="post-tag post-meta">
+            <span class="post-cat mr-2 post-meta">
               <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             </span>
           {{- end -}}
@@ -25,12 +25,12 @@
         {{- end -}}
       </h2>
       {{ with (.GetTerms "tags") }}
-      <div class="tagbox post-meta">
-        {{ range . }}
-        <span class="post-tag">
+      <div class="post-meta">
+        {{- range . }}
+        <span class="post-tag mr-2">
           <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
         </span>
-        {{ end }}
+        {{- end }}
       </div>
       {{ end }}
     </header>

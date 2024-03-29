@@ -42,7 +42,7 @@ body {
   position: relative;
 }
 .highlight:not(:last-child) {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 .chroma code:before {
   content: attr(data-lang);
@@ -53,11 +53,11 @@ body {
   font-weight: 700;
 }
 
-/*category and tags*/
-.post-tag {
-  margin-right: 0.5em;
+/* post header */
+.post-meta a {
+  color: currentColor;
 }
-header .post-tag a {
+.post-cat a {
   color: currentColor;
 }
 
@@ -69,7 +69,7 @@ header .post-tag a {
   margin-bottom: 0.5rem;
 }
 .post-box-tag {
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 .post-box-meta {
   font-size: 0.9rem;
