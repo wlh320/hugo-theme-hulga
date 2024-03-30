@@ -14,13 +14,14 @@ theme = "../../"
   description = "John Doe's blog"
 
   # change bulma's primary color
+  # primaryColor = "#3e50b4"
   primaryColor = "#1d9bf0"
 
   # use primary color everywhere, default true
   primaryEverywhere = true
 
   # change bulma's link color (secondary color in this theme)
-  # linkColor = "#f91880"
+  # linkColor = "#ff3f80"
 
   # subtitle on homepage
   subtitle = "This is a subtitle"

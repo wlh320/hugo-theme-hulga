@@ -4,9 +4,13 @@
 
 ## Screenshot
 
-build `hugoBasicExample` without any config of this theme
+Build `exampleSite`, you will see:
 
 ![screenshot](https://github.com/wlh320/hugo-theme-hulga/blob/main/images/screenshot.png)
+
+You can also customize primary and secondary color, for example:
+
+![material color](https://github.com/wlh320/hugo-theme-hulga/blob/main/images/material.png)
 
 ## Demo
 
@@ -56,7 +60,7 @@ the theme to populate the articles. Ex. content\post
 
 ## Config
 
-You can check the config of the demo page in `hugo.toml`
+You can check the config of the demo site in `exampleSite/hugo.toml`
 
 An example of avaliable params:
 
@@ -170,11 +174,11 @@ tag = "tags"
 
 ## Acknowledgements
 
-- [Hugo](https://gohugo.io/) Static site generator
-- [Bulma](https://bulma.io/) CSS framework
-- [Purgecss](https://purgecss.com/) [cssnano](https://cssnano.co/) Purge CSS size
-- [Katex](https://katex.org/) $\LaTeX$ rendering
-- [anchorjs](https://github.com/bryanbraun/anchorjs) add anchor to title
-- [tocbot](https://tscanlin.github.io/tocbot/) generate table of contents
-- [vanilla-back-to-top](https://github.com/vfeskov/vanilla-back-to-top) back to top
+- [Hugo](https://gohugo.io/): Static site generator
+- [Bulma](https://bulma.io/): CSS framework
+- [Purgecss](https://purgecss.com/) [cssnano](https://cssnano.co/): Purge CSS size
+- [Katex](https://katex.org/): $\LaTeX$ rendering
+- [anchorjs](https://github.com/bryanbraun/anchorjs): Add anchor to title
+- [tocbot](https://tscanlin.github.io/tocbot/): Generate table of contents
+- [vanilla-back-to-top](https://github.com/vfeskov/vanilla-back-to-top): Add back-to-top button
 
