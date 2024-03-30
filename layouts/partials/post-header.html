@@ -3,18 +3,18 @@
     {{ partial "nav.html" . }}
   </div>
   <div class="hero-body">
-    <header class="container has-text-centered">
-      <h1 class="title post-title">
+    <header class="container has-text-centered" {{ if not .Site.Params.noPagefind -}}data-pagefind-body{{- end -}}>
+      <h1 class="title post-title is-spaced">
         {{ .Title }}
       </h1>
       <h2 class="subtitle">
         {{- if isset .Params "date" -}}
-        <time class="post-meta">{{ .Date.Format "2006/01/02" }}</time>
+        <time>{{ .Date.Format "2006/01/02" }}</time>
         {{- end -}}
         {{- $ctx := . -}}
         {{ with (.GetTerms "categories") }} ・
           {{- range . -}}
-            <span class="post-tag post-meta">
+            <span class="post-cat mr-2">
               <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             </span>
           {{- end -}}
@@ -25,12 +25,12 @@
         {{- end -}}
       </h2>
       {{ with (.GetTerms "tags") }}
-      <div class="tagbox post-meta">
-        {{ range . }}
-        <span class="post-tag">
+      <div>
+        {{- range . }}
+        <span class="post-tag mr-2 post-cat">
           <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
         </span>
-        {{ end }}
+        {{- end }}
       </div>
       {{ end }}
     </header>

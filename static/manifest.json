@@ -1,6 +1,6 @@
 {
-  "name": "zilcH40's Blog",
-  "short_name": "zilcH40's Blog",
+  "name": "John Doe's Blog",
+  "short_name": "Blog",
   "description": "Just for fun!",
   "icons": [
       {
@@ -49,6 +49,6 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#1793d0",
-  "theme_color": "#1793d0"
+  "background_color": "#1793d1",
+  "theme_color": "#1793d1"
 }

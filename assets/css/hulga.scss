@@ -1,22 +1,66 @@
 // bulma customize
 @charset "utf-8";
 
-// Import a Google Font
-// @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import "./functions";
 
 // Set your brand colors
-// $archblue: #1793d0;
-
 {{ if .Site.Params.primaryColor }}
-$primary: {{ .Site.Params.primaryColor }};
-{{end}}
+  $primary: {{ .Site.Params.primaryColor }};
+  $bg-is-light: luminance($primary) > 0.55;
 
-// Update Bulma's global variables
-// can define primary color in theme config
+  :root {
+    --bulma-primary: #{$primary};
+    --bulma-primary-h: #{hue($primary)};
+    --bulma-primary-s: #{saturation($primary)};
+    --bulma-primary-l: #{lightness($primary)};
 
-@import "./common.scss";
+    @if $bg-is-light {
+      --bulma-primary-invert-l: var(--bulma-primary-05-l);
+    } @else {
+      --bulma-primary-invert-l: var(--bulma-primary-100-l);
+    }
+  }
+{{ end }}
+
+// Set your link colors (second brand color)
+{{ if .Site.Params.linkColor }}
+  $link: {{ .Site.Params.linkColor }};
+  $bg-is-light: luminance($link) > 0.55;
+
+  :root {
+    --bulma-link: #{$link};
+    --bulma-link-h: #{hue($link)};
+    --bulma-link-s: #{saturation($link)};
+    --bulma-link-l: #{lightness($link)};
+
+    @if $bg-is-light {
+      --bulma-link-invert-l: var(--bulma-link-05-l);
+    } @else {
+      --bulma-link-invert-l: var(--bulma-link-100-l);
+    }
+  }
+{{ end }}
+
+
+// custom css
+@import "./custom";
+
+
+/* force primary color */
+{{ if (default true .Site.Params.primaryEverywhere) }}
+.pagination-link.is-current {
+  background-color: var(--bulma-primary);
+  border-color: var(--bulma-primary);
+}
+a {
+  color: var(--bulma-primary);
+}
+.post-box-tag {
+  color: var(--bulma-primary);
+}
+{{ end }}
 
 /* hero looks like steam deck */
 {{ if .Site.Params.heroSteamDeck }}
-@import "./steamdeck.scss"
+@import "./steamdeck"
 {{ end }}

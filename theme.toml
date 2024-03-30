@@ -1,15 +1,19 @@
-# theme.toml template for a Hugo theme
-# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+name = 'hulga'
+license = 'MIT'
+licenselink = 'https://github.com/wlh320/hugo-theme-hulga/blob/master/LICENSE'
+description = 'A simple hugo blog theme based on bulma'
 
-name = "hulga"
-license = "MIT"
-licenselink = "https://github.com/wlh320/hugo-theme-hulga/blob/master/LICENSE"
-description = "A simple hugo blog theme based on bulma"
-homepage = "http://github.com/wlh320/hugo-theme-hulga/"
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/wlh320/hugo-theme-hulga'
+
+# If you have a running demo of the theme
+demosite = 'https://blog.zilch40.wang'
+
+# Taxonomy terms
 tags = ['bulma', 'blog', 'fast', 'simple', 'dark']
-features = ['bulma', 'fast', 'toc', 'dark mode', 'archives', 'pwa']
-min_version = "0.55.0"
+features = ['bulma', 'fast', 'toc', 'dark mode', 'archives', 'pwa', 'search']
 
+# If the theme has a single author
 [author]
-  name = "wlh"
-  homepage = "https://github.com/wlh320"
+  name = 'wlh'
+  homepage = 'https://github.com/wlh320'

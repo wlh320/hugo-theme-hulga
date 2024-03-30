@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{ partial "post-header.html" . }}
+<style>
+  body {
+    --pagefind-ui-primary: var(--bulma-primary);
+    --pagefind-ui-text: var(--bulma-text) ;
+    --pagefind-ui-background: var(--bulma-background);
+    --pagefind-ui-border: var(--bulma-border);
+    --pagefind-ui-border-radius: var(--bulma-radius);
+    --pagefind-ui-image-border-radius: var(--bulma-radius-small);
+  }
+</style>
+
+<section class="section">
+  <div class="container content">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <div id="search"></div>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({ element: "#search", showSubResults: true });
+            });
+        </script>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

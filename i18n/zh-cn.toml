@@ -4,17 +4,32 @@ other = "分类"
 [tags]
 other = "标签"
 
+[search]
+other = "搜索"
+
+[archives]
+other = "归档"
+
+[archives_count]
+other = "本博客共 {{ .Count }} 篇博文"
+
+[404-info]
+other = "页面未找到，请检查 URL "
+
 [prev_page]
 other = "上一页"
 
 [next_page]
 other = "下一页"
 
-[archives_count]
-other = "本博客共 {{ .Count }} 篇博文"
+[read_more]
+other = "阅读全文"
 
-[archives]
-other = "归档"
+[light-mode]
+other = "浅色"
 
-[404-info]
-other = "页面未找到，请检查 URL "
+[dark-mode]
+other = "深色"
+
+[system-mode]
+other = "跟随系统"

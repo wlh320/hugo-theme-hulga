@@ -1,0 +1,75 @@
+/* override bulma */
+a:hover {
+  text-decoration: underline;
+}
+
+/* fixed footer */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+#main {
+  flex: 1;
+}
+.footer {
+  box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* anchor animation */
+*:hover > .anchorjs-link {
+  transition: color .25s linear;
+}
+
+/* article content wrapper */
+.sidebar {
+  height: 100%;
+}
+
+/* hero */
+.shadow-hero {
+  box-shadow: 0 0 1.2rem 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/*syntax highlight label*/
+.highlight {
+  position: relative;
+}
+.highlight:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.chroma code:before {
+  content: attr(data-lang);
+  position: absolute;
+  right: 0.5rem;
+  top: 0rem;
+  opacity: 0.5;
+  font-weight: 700;
+}
+
+/* post header */
+.post-cat a {
+  color: currentColor;
+}
+
+/* posts */
+.post-box-tag {
+  font-size: 0.9rem;
+}
+.post-box-meta {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+}
+.post-box-time {
+  opacity: 0.8;
+}
+
+/* back to top */
+#back-to-top {
+  background: var(--bulma-primary);
+  color: var(--bulma-primary-invert);
+}

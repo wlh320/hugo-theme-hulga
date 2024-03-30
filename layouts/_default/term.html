@@ -4,8 +4,7 @@
 <section class="section">
   <div class="container">
     <div class="columns">
-      <div class="column is-2"></div>
-      <div class="column is-8">
+      <div class="column is-8 is-offset-2">
         {{ if eq .Data.Singular "category" }}
         <nav class="breadcrumb is-centered is-medium" aria-label="breadcrumbs">
           <ul>
@@ -24,30 +23,32 @@
         <div class="post-lists">
           {{ $paginator := .Paginate (where .Data.Pages "Type" "post") (.Site.Params.termPaginate | default 10) }}
           {{ range $paginator.Pages }}
-              <div class="box post-box">
-                <div class="post-box-title">
-                  <a href="{{ .RelPermalink }}" class="title is-size-5">{{ .Title }}</a>
-                </div>
-                <div class="post-box-meta">
+            <div class="box post-box">
+              <div class="mb-2">
+                <a href="{{ .RelPermalink }}" class="title is-size-5">{{ .Title }}</a>
+              </div>
+              <div class="post-box-meta">
+                <div>
                   {{ .Date.Format "2006/01/02" }}
                   {{ with (.GetTerms "categories") }} ・
                     {{ range . }}
-                      <span class="post-tag post-box-category">
+                      <span class="post-tag mr-2 post-cat">
                         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                       </span>
                     {{ end }}
                   {{ end }}
                 </div>
-                {{ with (.GetTerms "tags") }}
-                <div class="post-box-tags">
-                  {{ range . }}
-                    <span class="post-tag post-box-tag">
-                      <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
-                    </span>
-                  {{ end }}
-                </div>
+              </div>
+              {{ with (.GetTerms "tags") }}
+              <div class="post-box-tags">
+                {{ range . }}
+                  <span class="post-tag post-box-tag mr-2">
+                    <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+                  </span>
                 {{ end }}
               </div>
+              {{ end }}
+            </div>
           {{ end }}
           {{ partial "paginator.html" . }}
         </div>

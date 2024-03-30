@@ -1,30 +1,27 @@
 module.exports = {
     plugins: {
         '@fullhuman/postcss-purgecss': {
-            content: ['themes/hulga/layouts/**/*.html'],
+            content: ["./hugo_stats.json"],
+            defaultExtractor: (content) => {
+                const els = JSON.parse(content).htmlElements;
+                return [...(els.tags || []), ...(els.classes || []), ...(els.ids || [])];
+            },
+            variables: true,
             safelist: {
-                standard: ['highlight',
-                    'pre',
-                    'video',
-                    'img',
-                    'code',
-                    'content',
-                    'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p',
-                    'ul', 'ol', 'li',
-                    'blockquote',
-                    'table',
-                    'hr', 'br',
-                    'back-to-top'
+                standard: [
+                    'disabled',
+                    'back-to-top',
+                    'data-theme',
                 ],
                 deep: [/^content/, /^chroma/],
                 greedy: [],
                 keyframes: [],
-                variables: []
+                variables: [/control/, /pagination/, /family/, /text/, /link/, /selected/, /primary/]
             }
         },
         autoprefixer: {},
         cssnano: {
             preset: 'default'
-        }
+        },
     }
 };
