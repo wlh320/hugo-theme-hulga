@@ -9,12 +9,12 @@
       </h1>
       <h2 class="subtitle">
         {{- if isset .Params "date" -}}
-        <time class="post-meta">{{ .Date.Format "2006/01/02" }}</time>
+        <time>{{ .Date.Format "2006/01/02" }}</time>
         {{- end -}}
         {{- $ctx := . -}}
         {{ with (.GetTerms "categories") }} ・
           {{- range . -}}
-            <span class="post-cat mr-2 post-meta">
+            <span class="post-cat mr-2">
               <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             </span>
           {{- end -}}
@@ -25,9 +25,9 @@
         {{- end -}}
       </h2>
       {{ with (.GetTerms "tags") }}
-      <div class="post-meta">
+      <div>
         {{- range . }}
-        <span class="post-tag mr-2">
+        <span class="post-tag mr-2 post-cat">
           <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
         </span>
         {{- end }}

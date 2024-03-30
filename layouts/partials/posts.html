@@ -9,11 +9,11 @@
               {{ $paginator := .Paginate (where (where .Site.Pages "Type" "post") "Kind" "page") }}
               {{ range $paginator.Pages }}
               <div class="box post-box">
-                <div class="post-box-title">
+                <div class="mb-2">
                     <a href="{{ .RelPermalink }}" class="title is-5">{{ .Title }}</a>
                 </div>
                 {{ if .Site.Params.showSummary }}
-                <div class="post-box-summary">
+                <div class="mb-2">
                   {{ .Summary }}
                 </div>
                 {{ end }}

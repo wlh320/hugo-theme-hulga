@@ -1,9 +1,11 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
-hasCJKLanguage = true
-summaryLength = 20
+hasCJKLanguage = false
+# summaryLength = 80
 paginate = 3
+
+theme = "../../"
 
 [params]
   # show in HTML meta tag
@@ -12,10 +14,13 @@ paginate = 3
   description = "John Doe's blog"
 
   # change bulma's primary color
-  primaryColor = "#bae6fd"
+  primaryColor = "#1d9bf0"
 
   # use primary color everywhere, default true
-  primaryEverywhere = false
+  primaryEverywhere = true
+
+  # change bulma's link color (secondary color in this theme)
+  # linkColor = "#f91880"
 
   # subtitle on homepage
   subtitle = "This is a subtitle"
@@ -70,31 +75,31 @@ paginate = 3
 noClasses = false
 
 [menu]
-[[menu.main]]
-identifier = "index"
-name = "Home"
-url = "/"
-weight = 1
-[[menu.main]]
-identifier = "archives"
-name = "Archives"
-url = "/archives/"
-weight = 2
-[[menu.main]]
-identifier = "tags"
-name = "Tags"
-url = "/tags/"
-weight = 3
-[[menu.main]]
-identifier = "about"
-name = "About"
-url = "/about/"
-weight = 4
-[[menu.main]]
-identifier = "search"
-name = "Search"
-url = "/search/"
-weight = 5
+  [[menu.main]]
+    identifier = "index"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "archives"
+    name = "Archives"
+    url = "/archives/"
+    weight = 2
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 4
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 5
 
 [taxonomies]
 category = "categories"

@@ -40,6 +40,10 @@ a.toc-link {
 a.is-active-link {
   color: var(--bulma-primary);
 }
+{{ else }}
+a.is-active-link {
+  color: var(--bulma-link-text);
+}
 {{ end }}
 
 .toc-link::before {

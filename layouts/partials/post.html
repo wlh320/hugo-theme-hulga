@@ -7,8 +7,7 @@
   <div class="container">
     <div class="columns">
       {{ if $showToc }}
-      <div class="column is-1 is-hidden-mobile"></div>
-      <div class="column is-7">
+      <div class="column is-7 is-offset-2">
       {{ else }}
       <div class="column is-three-fifths is-offset-one-fifth">
       {{ end }}
@@ -17,13 +16,11 @@
         </article>
       </div>
       {{ if $showToc }}
-      <div class="column is-4 is-hidden-mobile">
-        <div class="sidebar" id="toc">
-          {{ if $showToc }}
+      <div class="column is-hidden-mobile">
+        <div class="sidebar pl-4" id="toc">
           <div class="post post-toc" id="post-toc">
             <!-- render by tocbot -->
           </div>
-          {{- end }}
         </div>
       </div>
       {{ end }}

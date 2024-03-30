@@ -75,10 +75,13 @@ theme = "hulga"
   description = "xxx's blog, xxx xx xxxx"
 
   # change bulma's primary color
-  primaryColor = "#1793d0"
+  primaryColor = "#1d9bf0"
 
   # use primary color everywhere, default true
-  primaryEverywhere = false
+  primaryEverywhere = true
+
+  # change bulma's link color (secondary color in this theme)
+  # linkColor = "#f91880"
 
   # subtitle on homepage
   subtitle = "This is a subtitle"
@@ -124,8 +127,8 @@ theme = "hulga"
 
 # for postcss-purgecss
 # see https://purgecss.com/guides/hugo.html
-[build]
-  writeStats = true
+# [build]
+#   writeStats = true
 
 # to enable different hightlight themes in light/dark mode 
 [markup]
@@ -135,28 +138,28 @@ theme = "hulga"
 [menu]
   [[menu.main]]
     identifier = "index"
-    name = "首页"
+    name = "Home"
     url = "/"
     weight = 1
   [[menu.main]]
     identifier = "archives"
-    name = "归档"
+    name = "Archives"
     url = "/archives/"
     weight = 2
   [[menu.main]]
-    identifier = "about"
-    name = "关于"
-    url = "/about/"
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
     weight = 3
   [[menu.main]]
-    identifier = "tags"
-    name = "标签"
-    url = "/tags/"
+    identifier = "about"
+    name = "About"
+    url = "/about/"
     weight = 4
   [[menu.main]]
-    identifier = "categories"
-    name = "类别"
-    url = "/categories/"
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
     weight = 5
 
 [taxonomies]

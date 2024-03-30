@@ -27,9 +27,6 @@ body {
 .sidebar {
   height: 100%;
 }
-#toc {
-  padding-left: 2rem;
-}
 
 /* hero */
 .shadow-hero {
@@ -54,20 +51,11 @@ body {
 }
 
 /* post header */
-.post-meta a {
-  color: currentColor;
-}
 .post-cat a {
   color: currentColor;
 }
 
 /* posts */
-.post-box-title {
-  margin-bottom: 0.5rem;
-}
-.post-box-summary {
-  margin-bottom: 0.5rem;
-}
 .post-box-tag {
   font-size: 0.9rem;
 }
