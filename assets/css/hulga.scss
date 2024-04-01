@@ -22,43 +22,36 @@
   }
 {{ end }}
 
-// Set your link colors (second brand color)
-{{ if .Site.Params.linkColor }}
-  $link: {{ .Site.Params.linkColor }};
-  $bg-is-light: luminance($link) > 0.55;
+// Set your link colors (secondary brand color)
+{{ $changeLinkColor := or .Site.Params.linkColor (default true .Site.Params.primaryEverywhere)}}
+{{ if $changeLinkColor }}
+  {{ if .Site.Params.linkColor }}
+    $link: {{ .Site.Params.linkColor }};
+  {{ else if .Site.Params.primaryColor }}
+    $link: {{ .Site.Params.primaryColor }};
+  {{ else }}
+    $link: #00d1b2;
+  {{ end }}
 
-  :root {
-    --bulma-link: #{$link};
-    --bulma-link-h: #{hue($link)};
-    --bulma-link-s: #{saturation($link)};
-    --bulma-link-l: #{lightness($link)};
+    $bg-is-light: luminance($link) > 0.55;
 
-    @if $bg-is-light {
-      --bulma-link-invert-l: var(--bulma-link-05-l);
-    } @else {
-      --bulma-link-invert-l: var(--bulma-link-100-l);
+    :root {
+      --bulma-link: #{$link};
+      --bulma-link-h: #{hue($link)};
+      --bulma-link-s: #{saturation($link)};
+      --bulma-link-l: #{lightness($link)};
+
+      @if $bg-is-light {
+        --bulma-link-invert-l: var(--bulma-link-05-l);
+      } @else {
+        --bulma-link-invert-l: var(--bulma-link-100-l);
+      }
     }
-  }
 {{ end }}
 
 
 // custom css
 @import "./custom";
-
-
-/* force primary color */
-{{ if (default true .Site.Params.primaryEverywhere) }}
-.pagination-link.is-current {
-  background-color: var(--bulma-primary);
-  border-color: var(--bulma-primary);
-}
-a {
-  color: var(--bulma-primary);
-}
-.post-box-tag {
-  color: var(--bulma-primary);
-}
-{{ end }}
 
 /* hero looks like steam deck */
 {{ if .Site.Params.heroSteamDeck }}

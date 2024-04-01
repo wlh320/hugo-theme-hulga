@@ -35,17 +35,9 @@ a.toc-link {
 .is-active-link {
   font-weight: 700
 }
-
-{{ if (default true .Site.Params.primaryEverywhere) }}
-a.is-active-link {
-  color: var(--bulma-primary);
-}
-{{ else }}
 a.is-active-link {
   color: var(--bulma-link-text);
 }
-{{ end }}
-
 .toc-link::before {
   background-color: #EEE;
   content: ' ';
