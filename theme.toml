@@ -10,8 +10,8 @@ homepage = 'https://github.com/wlh320/hugo-theme-hulga'
 demosite = 'https://blog.zilch40.wang'
 
 # Taxonomy terms
-tags = ['bulma', 'blog', 'fast', 'simple', 'dark']
-features = ['bulma', 'fast', 'toc', 'dark mode', 'archives', 'pwa', 'search']
+tags = ['bulma', 'blog', 'fast', 'light', 'dark', 'dark mode', 'responsive']
+features = ['bulma', 'fast', 'toc', 'table of contents', 'dark mode', 'archives', 'pwa', 'search']
 
 # If the theme has a single author
 [author]

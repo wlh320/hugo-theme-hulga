@@ -46,10 +46,10 @@
     {{- $bulmaCss = resources.Get "css/bulma.css" }}
   {{- end }}
   {{- if .Site.Params.postcss }}
-    {{- $bulma := $bulmaCss | postCSS | resources.Minify }}
-    {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS | resources.Minify }}
-    <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
-    <link rel="stylesheet" type="text/css" href="{{ $hulga.Permalink | relURL }}">
+    {{- $bulma := $bulmaCss | postCSS | resources.Minify | resources.PostProcess }}
+    {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS  | resources.Minify | resources.PostProcess }}
+    <link rel="stylesheet" type="text/css" href="{{ $bulma.RelPermalink }}">
+    <link rel="stylesheet" type="text/css" href="{{ $hulga.RelPermalink }}">
   {{- else }}
     {{- $bulma := $bulmaCss | resources.Minify }}
     {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}

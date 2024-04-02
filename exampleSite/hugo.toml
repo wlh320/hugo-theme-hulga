@@ -33,7 +33,7 @@ theme = "../../"
   math = false
 
   # enable postcss, mainly for css purge (713kB->155kB->20kB gzipped, but this makes build slower), default false
-  postcss = false
+  postcss = true
 
   # enable showing content summary below post title in home page, default false
   showSummary = true
