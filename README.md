@@ -2,7 +2,7 @@
 
 > hugo + bulma = hulga
 
-## Screenshot
+## Screenshots
 
 Build `exampleSite`, you will see:
 
@@ -14,7 +14,7 @@ You can also customize primary and secondary color, for example:
 
 ## Demo
 
-[Demo site](https://v4.zilch40.wang)
+[Demo Site](https://wlh320.github.io/hugo-theme-hulga)
 
 [My Blog](https://blog.zilch40.wang)
 

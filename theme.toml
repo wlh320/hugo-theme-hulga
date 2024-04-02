@@ -7,7 +7,7 @@ description = 'A simple hugo blog theme based on bulma'
 homepage = 'https://github.com/wlh320/hugo-theme-hulga'
 
 # If you have a running demo of the theme
-demosite = 'https://blog.zilch40.wang'
+demosite = 'https://wlh320.github.io/hugo-theme-hulga'
 
 # Taxonomy terms
 tags = ['bulma', 'blog', 'fast', 'light', 'dark', 'dark mode', 'responsive']

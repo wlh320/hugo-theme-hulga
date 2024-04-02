@@ -15,8 +15,9 @@
   <div class="container content">
     <div class="columns">
       <div class="column is-8 is-offset-2">
-        <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-        <script src="/pagefind/pagefind-ui.js"></script>
+        {{- $page := .Site.GetPage "/" -}}
+        <link href="{{- $page.RelPermalink -}}pagefind/pagefind-ui.css" rel="stylesheet">
+        <script src="{{- $page.RelPermalink -}}pagefind/pagefind-ui.js"></script>
         <div id="search"></div>
         <script>
             window.addEventListener('DOMContentLoaded', (event) => {
