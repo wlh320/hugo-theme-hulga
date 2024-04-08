@@ -53,6 +53,19 @@
 // custom css
 @import "./custom";
 
+/* dark theme toggle */
+{{ if .Site.Params.darkToggle }}
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ticon {
+  width: 1.2em;
+  height: 1.2em;
+}
+{{ end }}
+
 /* hero looks like steam deck */
 {{ if .Site.Params.heroSteamDeck }}
 @import "./steamdeck"

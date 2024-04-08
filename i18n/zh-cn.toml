@@ -26,10 +26,10 @@ other = "下一页"
 other = "阅读全文"
 
 [light-mode]
-other = "浅色"
+other = "浅色模式"
 
 [dark-mode]
-other = "深色"
+other = "深色模式"
 
 [system-mode]
 other = "跟随系统"

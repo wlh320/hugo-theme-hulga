@@ -11,6 +11,7 @@ other = "Search"
 other = "Archives"
 
 [archives_count]
+one = "There is {{ .Count }} article in this blog"
 other = "There are {{ .Count }} articles in this blog"
 
 [404-info]
