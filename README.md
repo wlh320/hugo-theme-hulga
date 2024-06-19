@@ -56,6 +56,10 @@ to show some i18n strings in this theme.
 
 5. Ensure the to put all content in a directory titled "post" for 
 the theme to populate the articles. Ex. content\post
+
+6. To enable search page, install pagefind and run `npx pagefind --site public` after 
+`hugo build`. Check [pagefind's docs](https://pagefind.app/docs/#indexing-your-site)
+for detail.
     
 
 ## Config
