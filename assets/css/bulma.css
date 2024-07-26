@@ -7171,7 +7171,7 @@ button.dropdown-item.is-selected {
   --bulma-navbar-item-selected-background-l: var(--bulma-link-l);
   --bulma-navbar-item-selected-color-l: var(--bulma-link-invert-l);
   --bulma-navbar-item-img-max-height: 1.75rem;
-  --bulma-navbar-burger-color: var(--bulma-link);
+  --bulma-navbar-burger-color: var(--bulma-navbar-item-color);
   --bulma-navbar-tab-hover-background-color: transparent;
   --bulma-navbar-tab-hover-border-bottom-color: var(--bulma-link);
   --bulma-navbar-tab-active-color: var(--bulma-link);
