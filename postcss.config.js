@@ -16,7 +16,7 @@ module.exports = {
                 deep: [/^content/, /^chroma/],
                 greedy: [],
                 keyframes: [],
-                variables: [/control/, /pagination/, /family/, /text/, /link/, /selected/, /primary/]
+                variables: [/bulma-primary-100-l/, /bulma-primary-invert/]
             }
         },
         autoprefixer: {},

@@ -47,15 +47,13 @@
   {{- end }}
   {{- if .Site.Params.postcss }}
     {{- $bulma := $bulmaCss | postCSS | resources.Minify | resources.PostProcess }}
-    {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | postCSS  | resources.Minify | resources.PostProcess }}
     <link rel="stylesheet" type="text/css" href="{{ $bulma.RelPermalink }}">
-    <link rel="stylesheet" type="text/css" href="{{ $hulga.RelPermalink }}">
   {{- else }}
     {{- $bulma := $bulmaCss | resources.Minify }}
-    {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
-    <link rel="stylesheet" type="text/css" href="{{ $bulma.Permalink | relURL }}">
-    <link rel="stylesheet" type="text/css" href="{{ $hulga.Permalink | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ $bulma.RelPermalink }}">
   {{- end }}
+  {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
+  <link rel="stylesheet" type="text/css" href="{{ $hulga.RelPermalink }}">
   {{- if .Site.Params.pwa }}
   <link rel="manifest" href="/manifest.json">
   {{- end }}
