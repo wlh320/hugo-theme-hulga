@@ -100,7 +100,7 @@ theme = "hulga"
   # enable katex rendering on every post page, default false
   math = false
 
-  # enable postcss, mainly for css purge (713kB->155kB->22kB gzipped, but this makes build slower), default false
+  # enable postcss, mainly for css purge (746kB->56kB->9kB gzipped, but this makes build slower), default false
   postcss = true
 
   # enable showing content summary below post title in home page, default false
