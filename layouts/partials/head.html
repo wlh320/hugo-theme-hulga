@@ -51,7 +51,7 @@
     {{- $bulma := $bulmaCss | resources.Minify }}
     <link rel="stylesheet" type="text/css" href="{{ $bulma.RelPermalink }}">
   {{- end }}
-  {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | resources.ToCSS $options | resources.Minify }}
+  {{- $hulga := $hulgaScss | resources.ExecuteAsTemplate "css/hulga.scss" . | css.Sass $options | resources.Minify }}
   <link rel="stylesheet" type="text/css" href="{{ $hulga.RelPermalink }}">
   {{- if .Site.Params.pwa }}
   <link rel="manifest" href="/manifest.json">

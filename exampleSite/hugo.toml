@@ -4,7 +4,7 @@ defaultContentLanguage = 'en'
 title = 'My New Hugo Site'
 hasCJKLanguage = false
 # summaryLength = 80
-paginate = 3
+pagination.pagerSize = 3
 
 theme = "../../"
 
