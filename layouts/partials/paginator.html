@@ -32,7 +32,8 @@ $pag.TotalPages 1 -}}
       <a
         class="pagination-link {{ if eq . $pag }}is-current{{ end }}"
         href="{{ .URL }}"
-        >{{ .PageNumber }}</a
+        >{{ partial "localize-digits.html" (dict "lang" page.Language.Lang
+        "value" (cast.ToString .PageNumber)) }}</a
       >
     </li>
     {{- else if $shouldEllipse }}

@@ -1,107 +1,100 @@
-  {{- $ctx := . -}}
-  <section class="section post-box-section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-10 is-offset-1">
-          <div class="columns">
-            <div class="column is-8">
-              <div class="post-lists">
-                {{ $paginator := .Paginate (where (where .Site.Pages "Type" "post") "Kind" "page") }}
-                {{ range $paginator.Pages }}
-                <div class="box post-box">
-                  <div class="mb-2">
-                      <a href="{{ .RelPermalink }}" class="title is-5">{{ .Title }}</a>
-                  </div>
-                  {{ if .Site.Params.showSummary }}
-                  <div class="mb-2">
-                    {{ .Summary }}
-                  </div>
-                  {{ end }}
-                  {{ with (.GetTerms "tags") }}
-                  <div class="post-box-tags">
-                    {{- range .}}
-                    <span class="post-tag mr-2 post-box-tag">
-                      <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
-                    </span>
-                    {{- end }}
-                  </div>
-                  {{ end }}
-                  <div class="post-box-meta">
-                    <div class="post-box-time">
-                      <span id="date" data-date='{{ .Date.Format "2006-01-02" }}'>
-                        {{ .Date.Format "2006/01/02" }}
-                      </span>
-                      {{ with (.GetTerms "categories") }} ・
-                        {{- range .}}
-                        <span class="post-cat mr-2">
-                          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-                        </span>
-                        {{- end }}
-                      {{ end }}
-                    </div>
-                    {{ if .Truncated }}
-                    <div class="readmore">
-                      <a href="{{ .RelPermalink }}">{{ i18n "read_more" }}</a>
-                    </div>
-                    {{ end }}
-                  </div>
+{{- $ctx := . -}}
+<section class="section post-box-section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <div class="columns">
+          <div class="column is-8">
+            <div class="post-lists">
+              {{ $paginator := .Paginate (where (where .Site.Pages "Type"
+              "post") "Kind" "page") }} {{ range $paginator.Pages }}
+              <div class="box post-box">
+                <div class="mb-2">
+                  <a href="{{ .RelPermalink }}" class="title is-5"
+                    >{{ .Title }}</a
+                  >
+                </div>
+                {{ if .Site.Params.showSummary }}
+                <div class="mb-2">{{ .Summary }}</div>
+                {{ end }} {{ with (.GetTerms "tags") }}
+                <div class="post-box-tags">
+                  {{- range .}}
+                  <span class="post-tag mr-2 post-box-tag">
+                    <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+                  </span>
+                  {{- end }}
                 </div>
                 {{ end }}
+                <div class="post-box-meta">
+                  <div class="post-box-time">
+                    <span id="date" data-date='{{ .Date.Format "2006-01-02" }}'>
+                      {{ .Date.Format "2006/01/02" }}
+                    </span>
+                    {{ with (.GetTerms "categories") }} ・ {{- range .}}
+                    <span class="post-cat mr-2">
+                      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                    </span>
+                    {{- end }} {{ end }}
+                  </div>
+                  {{ if .Truncated }}
+                  <div class="readmore">
+                    <a href="{{ .RelPermalink }}">{{ i18n "read_more" }}</a>
+                  </div>
+                  {{ end }}
+                </div>
               </div>
-              <div class="pt-5">
-                {{ partial "paginator.html" . }}
+              {{ end }}
+            </div>
+            <div class="pt-5">{{ partial "paginator.html" . }}</div>
+          </div>
+          <div class="column is-4 is-hidden-mobile">
+            {{ if .Site.Taxonomies.categories }}
+            <div class="card">
+              <header class="card-header is-primary">
+                <p class="card-header-title">{{ i18n "categories" }}</p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  {{ range .Site.Taxonomies.categories.ByCount }}
+                  <div class="container mb-2">
+                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+                    <span class="tag is-pulled-right">
+                      {{partial "localize-digits.html" (dict "lang"
+                      page.Language.Lang "value" .Count) }}
+                    </span>
+                  </div>
+                  {{ end }}
+                </div>
               </div>
             </div>
-            <div class="column is-4 is-hidden-mobile">
-              {{ if .Site.Taxonomies.categories }}
-              <div class="card">
-                <header class="card-header is-primary">
-                  <p class="card-header-title">
-                    {{ i18n "categories" }}
-                  </p>
-                </header>
-                <div class="card-content">
-                  <div class="content">
-                    {{ range .Site.Taxonomies.categories.ByCount }}
-                    <div class="container mb-2">
-                      <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-                      <span class="tag is-pulled-right">
-                        {{ .Count }}
+            <br />
+            {{ end }} {{ if .Site.Taxonomies.tags }}
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">{{ i18n "tags" }}</p>
+              </header>
+              <div class="card-content">
+                <div class="field is-grouped is-grouped-multiline">
+                  {{ range .Site.Taxonomies.tags.ByCount }}
+                  <div class="control">
+                    <div class="tags has-addons">
+                      <a class="tag" href="{{ .Page.RelPermalink }}"
+                        >{{ .Page.Title }}</a
+                      >
+                      <span class="tag counter-tag">
+                        {{ partial "localize-digits.html" (dict "lang"
+                        page.Language.Lang "value" .Count) }}
                       </span>
                     </div>
-                    {{ end }}
                   </div>
+                  {{ end }}
                 </div>
               </div>
-              <br>
-              {{ end }}
-
-              {{ if .Site.Taxonomies.tags }}
-              <div class="card">
-                <header class="card-header">
-                  <p class="card-header-title">
-                    {{ i18n "tags" }}
-                  </p>
-                </header>
-                <div class="card-content">
-                  <div class="field is-grouped is-grouped-multiline">
-                    {{ range .Site.Taxonomies.tags.ByCount }}
-                    <div class="control">
-                      <div class="tags has-addons">
-                        <a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-                        <span class="tag counter-tag">
-                          {{ .Count }}
-                        </span>
-                      </div>
-                    </div>
-                    {{ end }}
-                  </div>
-                </div>
-              </div>
-              {{ end }}
             </div>
+            {{ end }}
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
